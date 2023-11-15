@@ -18,5 +18,9 @@
    {
       "url":"https://studio.swiperjs.com",
       "label":"SwiperJS Studio"
+   },
+   {
+      "url":"https://clamp.font-size.app/",
+      "label": "Clamp Font Size generator"
    }
 ]
