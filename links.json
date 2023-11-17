@@ -25,10 +25,10 @@
    },
    {
       "url":"https://jimbobsquarepants.github.io/ImageProcessor/imageprocessor-web/imageprocessingmodule/",
-      "label":"Image Processor Docs",
+      "label":"Image Processor Docs"
    },
    {
       "url":"https://docs.sixlabors.com/articles/imagesharp.web/processingcommands.html",
-      "label":"ImageSharp Docs",
+      "label":"ImageSharp Docs"
    }
 ]
