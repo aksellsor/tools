@@ -22,5 +22,13 @@
    {
       "url":"https://clamp.font-size.app/",
       "label": "Clamp Font Size generator"
+   },
+   {
+      "url":"https://jimbobsquarepants.github.io/ImageProcessor/imageprocessor-web/imageprocessingmodule/",
+      "label":"Image Processor Docs",
+   },
+   {
+      "url":"https://docs.sixlabors.com/articles/imagesharp.web/processingcommands.html",
+      "label":"ImageSharp Docs",
    }
 ]
