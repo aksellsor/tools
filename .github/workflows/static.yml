@@ -12,12 +12,12 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v1
-      - name: 📂 Sync files through ftp
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          local-dir: ./wp/
-          server: ${{ secrets.FTP_HOST_AKSELL_WP }}
-          server-dir: www/tools
-          protocol: ftps
-          username: ${{ secrets.FTP_USR_AKSELL_WP }}
+          server: 72876.web.tornado-node.net
+          username: w72876
           password: ${{ secrets.FTP_PWD_AKSELL_WP }}
+          protocol: ftps
+          server-dir: www/tools
+          local-dir: ./wp/
