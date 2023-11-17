@@ -30,5 +30,10 @@
    {
       "url":"https://docs.sixlabors.com/articles/imagesharp.web/processingcommands.html",
       "label":"ImageSharp Docs"
+   },
+   {
+      "url":"https://neumorphism.io/",
+      "label":"Neumorphism.io"
    }
+   
 ]
