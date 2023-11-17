@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aksell tools</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicons">
+    <link rel="manifest" href="./favicons/site.webmanifest">
+    <link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#00c458">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+    <style>
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: grid;
+            place-content: center;
+        }
+
+        body {
+            background-color: #212121;
+            background: linear-gradient(57deg, rgba(59, 56, 56, 1) 0%, rgba(0, 0, 0, 1) 88%);
+            color: #fff;
+            margin: 0;
+            padding: 3rem;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+        
+        .container {
+            max-width: 1300px;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .img {
+            width: 100%;
+        }
+
+        #links {
+            margin-left: -6px;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .item-link {
+            position: relative;
+            width: max-content;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+        }
+
+        .item-link::before {
+            content: "";
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% - .5rem);
+            height: calc(100% - .5rem);
+            background-color: rgba(150, 150, 150, 0.3);
+            z-index: -1;
+            border-radius: .5rem;
+            display: block;
+        }
+
+        .item-link:hover {
+            text-decoration: underline;
+        }
+
+        .item-link:focus {
+            outline: none;
+        }
+
+        .item-link:hover::before,
+        .item-link:focus::before {
+            background-color: #19171C;
+            outline: 1px solid #00E869;
+        }
+
+        #edit-links {
+            margin-left: -6px;
+        }
+
+        .top-ui-link {
+            text-decoration: none;
+            color: #ccc;
+            display: inline-block;
+            padding: .5rem;
+        }
+
+        .top-ui-link:hover {
+            text-decoration: underline;
+        }
+
+        .top-ui-link:focus {
+            background-color: #19171C;
+            outline: 1px solid #00E869;
+            border-radius: .25rem;
+        }
+
+        #top-ui {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-ui-link--search {
+            outline: 1.5px solid rgba(150, 150, 150, 0.5);
+            border-radius: 50rem;
+            padding: 0.4rem 1rem;
+            color: rgba(150, 150, 150, 0.656);
+            margin-right: auto;
+            margin-left: 1rem;
+            line-height: 1;
+            align-items: center;
+            display: inline-flex;
+            gap: .5rem;
+            font-size: .8rem;
+            user-select: none;
+        }
+
+        .top-ui-link--search::after {
+            content: "CMD+K";
+            font-weight: bold;
+        }
+
+        #cmdk {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+        }
+
+        #cmdk.open {
+            display: block;
+        }
+
+        #cmdk__inner {
+            inset: 0;
+            position: fixed;
+            width: 100%;
+            margin: auto;
+            max-width: 650px;
+            max-height: 450px;
+            /* padding: 1rem; */
+            z-index: 99;
+            height: 100%;
+            border-radius: 1.5rem 1.5rem 1rem 1rem;
+            background-color: #191616;
+            outline: 1px solid #494949;
+        }
+
+        #cmdk::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            z-index: -1;
+            display: block;
+        }
+    </style>
+    <style>
+        .search-field {
+            --input-text-color: #fff;
+            --input-placeholder-color: rgba(255, 255, 255, 0.6);
+            --input-bg-color: rgb(43, 43, 43);
+            --focus-input-bg-color: #00e8681b;
+            --text-color: #949faa;
+            --active-color: #00E869;
+            font-size: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            position: relative;
+            isolation: isolate;
+            transform: translateY(calc((100% + 1rem) * -1));
+        }
+
+        /* a fancy bg for showing background and border when focus. */
+        .search-field__bg {
+            position: absolute;
+            width: 100%;
+            inset: 0;
+            background: var(--input-bg-color);
+            outline: 1px solid #494949;
+            border-radius: 50rem;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+
+        /* label styling */
+        .search-field {
+            width: 100%;
+            padding: 0.8em;
+            height: 40px;
+            padding-inline: var(--inline-padding-of-input);
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon,
+        .search-field__close-btn {
+            position: absolute;
+        }
+
+        /* styling search-icon */
+        .search-icon {
+            fill: var(--text-color);
+            left: var(--inline-padding-of-input);
+            margin-left: 1rem;
+            width: 17px;
+            display: block;
+        }
+
+        .search-field__input:focus~.search-icon {
+            fill: var(--active-color);
+        }
+
+        /* svg -- size */
+        .search-field svg {
+            width: 17px;
+            display: block;
+        }
+
+        /* styling of close button */
+        .search-field__close-btn {
+            border: none;
+            right: var(--inline-padding-of-input);
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            padding: 0.1em;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--active-color);
+            opacity: 0;
+            visibility: hidden;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 1rem;
+        }
+
+        /* styling of input */
+        .search-field__input {
+            color: var(--input-text-color);
+            width: 100%;
+            padding-left: 3rem;
+            background: none;
+            border: none;
+            font-size: 1em;
+        }
+
+        ::-moz-selection {
+            color: rgb(0, 0, 0);
+            background: #00E869;
+        }
+
+        ::selection {
+            color: rgb(0, 0, 0);
+            background: #00E869;
+        }
+
+        .search-field__input::placeholder {
+            color: var(--input-placeholder-color);
+        }
+
+        .search-field__input:focus {
+            outline: none;
+        }
+
+
+        /* input background change in focus */
+        .search-field__input:focus~.search-field__bg {
+            border: 1px solid var(--active-color);
+            background: var(--focus-input-bg-color);
+        }
+
+        /* search icon color change in focus */
+        .search-field__input:focus~.search {
+            fill: var(--active-color);
+        }
+
+        /* showing close button when typing */
+        .search-field__input:valid~.search-field__close-btn {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+            -webkit-transition-delay: 9999s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="cmdk">
+            <div id="cmdk__inner">
+    
+                <form class="cmdk__top-row">
+                    <label for="search" class="search-field">
+                        <input class="search-field__input" type="text" required="" placeholder="Search" id="search">
+                        <div class="search-field__bg"></div>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"
+                            class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
+                            <g>
+                                <path
+                                    d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                                </path>
+                            </g>
+                        </svg>
+                        <button class="search-field__close-btn" type="reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </label>
+                </form>
+            </div>
+        </div>
+        <div id="top-ui">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="61.703"
+                height="28.047" viewBox="0 0 61.703 28.047">
+                <g id="Group_88159" data-name="Group 88159" transform="translate(-608.5 -2468.587)">
+                    <rect id="Rectangle_65" data-name="Rectangle 65" width="28.047" height="28.047"
+                        transform="translate(608.5 2468.587)" fill="#00e86a"></rect>
+                    <rect id="Rectangle_66" data-name="Rectangle 66" width="17.95" height="28.047"
+                        transform="translate(639.913 2468.587)" fill="#00e86a"></rect>
+                    <rect id="Rectangle_67" data-name="Rectangle 67" width="8.975" height="28.047"
+                        transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
+                </g>
+            </svg>
+            <div href="https://github.com/aksellsor/links/edit/main/links.json" class="top-ui-link top-ui-link--search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 27 27.007">
+                    <path id="Icon_ionic-ios-search" data-name="Icon ionic-ios-search"
+                        d="M31.184,29.545l-7.509-7.58a10.7,10.7,0,1,0-1.624,1.645l7.46,7.53a1.156,1.156,0,0,0,1.631.042A1.163,1.163,0,0,0,31.184,29.545ZM15.265,23.7a8.45,8.45,0,1,1,5.977-2.475A8.4,8.4,0,0,1,15.265,23.7Z"
+                        transform="translate(-4.5 -4.493)" fill="currentColor" />
+                </svg>
+            </div>
+            <a href="https://github.com/aksellsor/links/edit/main/links.json" target="_blank" class="top-ui-link">Edit
+                links</a>
+            <a href="https://github.com/aksellsor/tools/blob/main/wp/index.html" target="_blank" class="top-ui-link">Edit
+                html</a>
+        </div>
+        <div id="links" style="margin-bottom: 1rem;"></div>
+    </div>
+    <script>
+        let cmdk = document.querySelector("#cmdk");
+        let cmdkInner = document.querySelector("#cmdk__inner");
+        let searchFieldInput = document.querySelector(".search-field__input");
+        var openCMDK = function () {
+            cmdk.classList.add("open");
+            searchFieldInput?.focus();
+        };
+        var closeCMDK = function () {
+            cmdk.classList.remove("open");
+        };
+
+        /* OPEN ON BTN CLICK */
+        let searchBtn = document.querySelector(".top-ui-link--search");
+        searchBtn.addEventListener("click", () => {
+            openCMDK();
+        });
+
+        const delta = 6;
+        let startX;
+        let startY;
+
+        cmdk.addEventListener('mousedown', function (event) {
+            startX = event.pageX;
+            startY = event.pageY;
+        });
+
+        cmdk.addEventListener('mouseup', function (e) {
+            const diffX = Math.abs(e.pageX - startX);
+            const diffY = Math.abs(e.pageY - startY);
+
+            if (diffX < delta && diffY < delta) {
+                const isClickedInsideDiv = e.composedPath().includes(cmdkInner);
+
+                if (isClickedInsideDiv) {
+                    // alert('clicked inside of div');
+                } else {
+                    closeCMDK();
+                    // alert('clicked outside of div');
+                }
+            }
+        });
+        /* DISMISS ON CLICK OUTSIDE */
+        const keyDown = (e) => {
+            if (e.key === "Escape") {
+                closeCMDK();
+            }
+            if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+                openCMDK();
+            }
+        };
+        window.addEventListener("keydown", keyDown);
+        let urls = [];
+        let milliseconds = new Date().getTime();
+        fetch("https://raw.githubusercontent.com/aksellsor/links/main/links.json?token="+ milliseconds).then(r => r.json()).then(urls => {
+            let links =
+                document.querySelector("#links");
+            urls?.forEach(link => {
+                let html = `<span class="url">${link.label}</span>`;
+                let item = document.createElement("a");
+                item.href = link.url;
+                item.classList = "item-link";
+                item.innerHTML = html;
+                links.appendChild(item);
+                // var key = "d068343cb0feaf6b8897a4dce75b6ab5";
+                // fetch("https://api.linkpreview.net", {
+                //     method: "GET",
+                //     headers: {
+                //         'X-Linkpreview-Api-Key': key,
+                //     },
+                //     mode: "cors",
+                //     body: JSON.stringify({ q: url })
+                // })
+                //     .then((res) => res.json())
+                //     .then((response) => {
+                //         let html = `
+                //            <a href="${response.url}" class="item-link">
+                //                 <img class="img" src="${response.image}">
+                //                 <div>
+                //                     <div class="title">${response.title}</div>
+                //                     <div class="desc">${response.description}</div>
+                //                     <div class="url">${response.url}</div>
+                //                 </div>
+                //            </a>
+                //         `;
+                //         let item = document.createElement("div");
+                //         item.classList = "item";
+                //         item.innerHTML = html;
+                //         links.appendChild(item);
+                //     });
+            });
+        });
+        // const urls = [
+        //     { url: "https://css-mask-generator.com", label: "CSS Mask Generator" },
+        //     { url: "https://bennettfeely.com/clippy", label: "Clippy - clip path generator" },
+        //     { url: "https://getcssscan.com/css-box-shadow-examples", label: "CSS Box Shadow Examples" },
+        //     { url: "https://uiverse.io/buttons", label: "UIverse" },
+        //     { url: "https://studio.swiperjs.com", label: "SwiperJS Studio" },
+        // ];
+    </script>
+</body>
+
+</html>
