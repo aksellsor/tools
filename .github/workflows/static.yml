@@ -1,31 +1,23 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static html to aksell.no/tools
-
+name: 🚀 Deploy static html to aksell.no/tools
 on:
   push:
     paths:
       - wp/**
-
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "static"
-  cancel-in-progress: false
-
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
+  web-deploy:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v1
+      - name: 📂 Sync files through ftp
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
+          local-dir: ./wp/
           server: ${{ secrets.FTP_HOST_AKSELL_WP }}
+          server-dir: www/tools
+          protocol: ftps
           username: ${{ secrets.FTP_USR_AKSELL_WP }}
           password: ${{ secrets.FTP_PWD_AKSELL_WP }}
-          local-dir: wp/
-          server-dir: www/tools/
-          protocol: ftps
