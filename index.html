@@ -2,22 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aksell tools</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://raw.githubusercontent.com/aksellsor/links/main/favicons">
-    <link rel="manifest" href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/site.webmanifest">
-    <link rel="mask-icon" href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/safari-pinned-tab.svg" color="#00c458">
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta name="theme-color" content="#000000">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://raw.githubusercontent.com/aksellsor/links/main/favicons" />
+    <link rel="manifest" href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/site.webmanifest" />
+    <link rel="mask-icon" href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/safari-pinned-tab.svg"
+        color="#00c458" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="theme-color" content="#000000" />
     <style>
         @media (hover: hover) {
             body {
                 overscroll-behavior: none;
                 touch-action: pan-down;
             }
+        }
+
+        hr {
+            border-color: #585858;
         }
 
         html {
@@ -67,14 +75,18 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+                sans-serif;
             display: grid;
             place-content: center;
         }
 
         body {
             background-color: #212121;
-            background: linear-gradient(57deg, rgba(59, 56, 56, 1) 0%, rgba(0, 0, 0, 1) 88%);
+            background: linear-gradient(57deg,
+                    rgba(59, 56, 56, 1) 0%,
+                    rgba(0, 0, 0, 1) 88%);
             color: #fff;
             margin: 0;
             padding: 3rem;
@@ -124,17 +136,17 @@
         }
 
         .item-link::before {
-            content: "";
+            content: '';
             position: absolute;
 
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            width: calc(100% - .5rem);
-            height: calc(100% - .5rem);
+            width: calc(100% - 0.5rem);
+            height: calc(100% - 0.5rem);
             background-color: rgba(150, 150, 150, 0.3);
             z-index: -1;
-            border-radius: .5rem;
+            border-radius: 0.5rem;
             display: block;
         }
 
@@ -148,8 +160,8 @@
 
         .item-link:hover::before,
         .item-link:focus::before {
-            background-color: #19171C;
-            outline: 1px solid #00E869;
+            background-color: #19171c;
+            outline: 1px solid #00e869;
         }
 
         #edit-links {
@@ -160,7 +172,7 @@
             text-decoration: none;
             color: #ccc;
             display: inline-block;
-            padding: .5rem;
+            padding: 0.5rem;
         }
 
         .top-ui-link:hover {
@@ -168,9 +180,9 @@
         }
 
         .top-ui-link:focus {
-            background-color: #19171C;
-            outline: 1px solid #00E869;
-            border-radius: .25rem;
+            background-color: #19171c;
+            outline: 1px solid #00e869;
+            border-radius: 0.25rem;
         }
 
         #top-ui {
@@ -189,13 +201,13 @@
             line-height: 1;
             align-items: center;
             display: inline-flex;
-            gap: .5rem;
-            font-size: .8rem;
+            gap: 0.5rem;
+            font-size: 0.8rem;
             user-select: none;
         }
 
         .top-ui-link--search::after {
-            content: "CMD+K";
+            content: 'CMD+K';
             font-weight: bold;
         }
 
@@ -226,7 +238,7 @@
         }
 
         #cmdk::before {
-            content: "";
+            content: '';
             position: fixed;
             inset: 0;
             -webkit-backdrop-filter: blur(15px);
@@ -246,7 +258,7 @@
             display: flex;
             width: 100%;
             justify-content: space-between;
-            padding: .5rem 1rem;
+            padding: 0.5rem 1rem;
             text-underline-position: under;
             text-decoration-thickness: 1px;
             text-decoration-color: rgba(255, 255, 255, 0.3);
@@ -266,7 +278,7 @@
         }
 
         .cmdk-link h {
-            color: #00E869;
+            color: #00e869;
         }
 
         .cmdk-link:first-of-type {
@@ -285,7 +297,7 @@
             --input-bg-color: rgb(43, 43, 43);
             --focus-input-bg-color: #00e8681b;
             --text-color: #949faa;
-            --active-color: #00E869;
+            --active-color: #00e869;
             font-size: 1rem;
             display: flex;
             gap: 0.5rem;
@@ -381,12 +393,12 @@
 
         ::-moz-selection {
             color: rgb(0, 0, 0);
-            background: #00E869;
+            background: #00e869;
         }
 
         ::selection {
             color: rgb(0, 0, 0);
-            background: #00E869;
+            background: #00e869;
         }
 
         .search-field__input::placeholder {
@@ -396,7 +408,6 @@
         .search-field__input:focus {
             outline: none;
         }
-
 
         /* input background change in focus */
         .search-field__input:focus~.search-field__bg {
@@ -420,7 +431,7 @@
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus,
         input:-webkit-autofill:active {
-            -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+            -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
             -webkit-transition-delay: 9999s;
         }
     </style>
@@ -437,76 +448,75 @@
  * @author Zeno Rocha <hi@zenorocha.com>
  */
 
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #282a36;
-}
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: 0.5em;
+            background: #282a36;
+        }
 
-.hljs-built_in,
-.hljs-selector-tag,
-.hljs-section,
-.hljs-link {
-  color: #8be9fd;
-}
+        .hljs-built_in,
+        .hljs-selector-tag,
+        .hljs-section,
+        .hljs-link {
+            color: #8be9fd;
+        }
 
-.hljs-keyword {
-  color: #ff79c6;
-}
+        .hljs-keyword {
+            color: #ff79c6;
+        }
 
-.hljs,
-.hljs-subst {
-  color: #f8f8f2;
-}
+        .hljs,
+        .hljs-subst {
+            color: #f8f8f2;
+        }
 
-.hljs-title,
-.hljs-attr,
-.hljs-meta-keyword {
-  font-style: italic;
-  color: #50fa7b;
-}
+        .hljs-title,
+        .hljs-attr,
+        .hljs-meta-keyword {
+            font-style: italic;
+            color: #50fa7b;
+        }
 
-.hljs-string,
-.hljs-meta,
-.hljs-name,
-.hljs-type,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-tag,
-.hljs-template-variable {
-  color: #f1fa8c;
-}
+        .hljs-string,
+        .hljs-meta,
+        .hljs-name,
+        .hljs-type,
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-addition,
+        .hljs-variable,
+        .hljs-template-tag,
+        .hljs-template-variable {
+            color: #f1fa8c;
+        }
 
-.hljs-comment,
-.hljs-quote,
-.hljs-deletion {
-  color: #6272a4;
-}
+        .hljs-comment,
+        .hljs-quote,
+        .hljs-deletion {
+            color: #6272a4;
+        }
 
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-literal,
-.hljs-title,
-.hljs-section,
-.hljs-doctag,
-.hljs-type,
-.hljs-name,
-.hljs-strong {
-  font-weight: bold;
-}
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-literal,
+        .hljs-title,
+        .hljs-section,
+        .hljs-doctag,
+        .hljs-type,
+        .hljs-name,
+        .hljs-strong {
+            font-weight: bold;
+        }
 
-.hljs-literal,
-.hljs-number {
-  color: #bd93f9;
-}
+        .hljs-literal,
+        .hljs-number {
+            color: #bd93f9;
+        }
 
-.hljs-emphasis {
-  font-style: italic;
-}
-
+        .hljs-emphasis {
+            font-style: italic;
+        }
     </style>
 </head>
 
@@ -516,7 +526,7 @@
             <div id="cmdk__inner">
                 <form class="cmdk__top-row" id="search-form">
                     <label for="search" class="search-field">
-                        <input class="search-field__input" type="text" placeholder="Search" id="search-input">
+                        <input class="search-field__input" type="text" placeholder="Search" id="search-input" />
                         <div class="search-field__bg"></div>
                         <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"
                             class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
@@ -558,34 +568,35 @@
                         transform="translate(-4.5 -4.493)" fill="currentColor" />
                 </svg>
             </div>
-            <a href="https://github.com/aksellsor/links/edit/main/links.csv" target="_blank" class="top-ui-link">Edit links</a>
-            <a href="https://github.com/aksellsor/links/edit/main/index.html" target="_blank" class="top-ui-link">Edit html</a>
-            <a href="https://github.com/aksellsor/links/edit/main/readme.md" target="_blank" class="top-ui-link">Edit md</a>
+            <a href="https://github.com/aksellsor/links/edit/main/links.csv" target="_blank" class="top-ui-link">Edit
+                links</a>
+            <a href="https://github.com/aksellsor/links/edit/main/index.html" target="_blank" class="top-ui-link">Edit
+                html</a>
+            <a href="https://github.com/aksellsor/links/edit/main/readme.md" target="_blank" class="top-ui-link">Edit
+                md</a>
         </div>
-        <div id="links" style="margin-bottom: 1rem;"></div>
+        <div id="links" style="margin-bottom: 1rem"></div>
 
-      
         <div id="markdown"></div>
     </div>
     <script>
-        document.querySelector("#search-form").addEventListener("submit", e => {
-
+        document.querySelector('#search-form').addEventListener('submit', (e) => {
             e.preventDefault();
         });
-        let cmdk = document.querySelector("#cmdk");
-        let cmdkInner = document.querySelector("#cmdk__inner");
-        let searchFieldInput = document.querySelector(".search-field__input");
+        let cmdk = document.querySelector('#cmdk');
+        let cmdkInner = document.querySelector('#cmdk__inner');
+        let searchFieldInput = document.querySelector('.search-field__input');
         var openCMDK = function () {
-            cmdk.classList.add("open");
+            cmdk.classList.add('open');
             searchFieldInput?.focus();
         };
         var closeCMDK = function () {
-            cmdk.classList.remove("open");
+            cmdk.classList.remove('open');
         };
 
         /* OPEN ON BTN CLICK */
-        let searchBtn = document.querySelector(".top-ui-link--search");
-        searchBtn.addEventListener("click", () => {
+        let searchBtn = document.querySelector('.top-ui-link--search');
+        searchBtn.addEventListener('click', () => {
             openCMDK();
         });
 
@@ -614,7 +625,7 @@
         });
         const keyDown = (e) => {
             /* DISMISS ON ESCAPE */
-            if (e.key === "Escape") {
+            if (e.key === 'Escape') {
                 closeCMDK();
             }
             /* OPEN USING CMD+K */
@@ -623,46 +634,41 @@
                     case 'KeyK':
                         openCMDK();
                         break;
-
                 }
             }
             if (e.altKey && e.shiftKey) {
                 switch (e.code) {
                     case 'KeyG':
-                        window.open("https://github.com/aksellsor/links");
+                        window.open('https://github.com/aksellsor/links');
                         break;
-
                 }
             }
         };
-        document.body.addEventListener("keydown", keyDown);
+        document.body.addEventListener('keydown', keyDown);
         let allUrls = [];
         let milliseconds = new Date().getTime();
-        let links = document.querySelector("#links");
-        let cmdkLinks = document.querySelector("#cmdk-links");
+        let links = document.querySelector('#links');
+        let cmdkLinks = document.querySelector('#cmdk-links');
         function csvJSON(csv) {
-
-            var lines = csv.split("\n");
+            var lines = csv.split('\n');
 
             var result = [];
 
             // NOTE: If your columns contain commas in their values, you'll need
-            // to deal with those before doing the next step 
+            // to deal with those before doing the next step
             // (you might convert them to &&& or something, then covert them back later)
             // jsfiddle showing the issue https://jsfiddle.net/
-            var headers = lines[0].split(",");
+            var headers = lines[0].split(',');
 
             for (var i = 1; i < lines.length; i++) {
-
                 var obj = {};
-                var currentline = lines[i].split(",");
+                var currentline = lines[i].split(',');
 
                 for (var j = 0; j < headers.length; j++) {
                     obj[headers[j]] = currentline[j];
                 }
 
                 result.push(obj);
-
             }
 
             //return result; //JavaScript object
@@ -670,35 +676,44 @@
         }
         const createItemLinks = (urls) => {
             links.innerHTML = null;
-            urls?.forEach(link => {
+            urls?.forEach((link) => {
                 let html = `<span class="url">${link.label}</span>`;
-                let item = document.createElement("a");
+                let item = document.createElement('a');
                 item.href = link.url;
-                item.target = "_blank";
-                item.classList = "item-link";
+                item.target = '_blank';
+                item.classList = 'item-link';
                 item.innerHTML = html;
                 links.appendChild(item);
             });
         };
         const createCMDKLinks = (urls, keyword) => {
             cmdkLinks.innerHTML = null;
-            urls?.forEach(link => {
-                let html = `<span class="url">${link.label?.toLowerCase()?.replace(keyword, `<h>${keyword}</h>`)}</span><span class="symbol">↵</span>`;
-                let item = document.createElement("a");
+            urls?.forEach((link) => {
+                let html = `<span class="url">${link.label
+                    ?.toLowerCase()
+                    ?.replace(
+                        keyword,
+                        `<h>${keyword}</h>`
+                    )}</span><span class="symbol">↵</span>`;
+                let item = document.createElement('a');
                 item.href = link.url;
-                item.target = "_blank";
-                item.classList = "cmdk-link";
+                item.target = '_blank';
+                item.classList = 'cmdk-link';
                 item.innerHTML = html;
                 cmdkLinks.appendChild(item);
             });
         };
-        fetch(`https://raw.githubusercontent.com/aksellsor/links/main/links.csv?token=${milliseconds}`).then(r => r.text()).then(csv => {
-            let json = csvJSON(csv);
-            let parsed = JSON.parse(json)?.filter(item => item.url?.length > 0);
-            allUrls = parsed;
-            createItemLinks(parsed);
-            createCMDKLinks(parsed);
-        });
+        fetch(
+            `https://raw.githubusercontent.com/aksellsor/links/main/links.csv?token=${milliseconds}`
+        )
+            .then((r) => r.text())
+            .then((csv) => {
+                let json = csvJSON(csv);
+                let parsed = JSON.parse(json)?.filter((item) => item.url?.length > 0);
+                allUrls = parsed;
+                createItemLinks(parsed);
+                createCMDKLinks(parsed);
+            });
         // fetch(`https://raw.githubusercontent.com/aksellsor/links/main/links.json?token=${milliseconds}`).then(r => r.json()).then(urls => {
         //     console.log('urls', urls);
         //     allUrls = urls;
@@ -706,62 +721,63 @@
         //     createCMDKLinks(urls);
         // });
 
-
         /* SEARCH */
         let searchFocused = null;
-        let searchInput = document.querySelector("#search-input");
+        let searchInput = document.querySelector('#search-input');
         let activeEl = null;
         let activeIndex = -1;
         let filteredItems = null;
-        searchInput.addEventListener("focus", (e) => {
+        searchInput.addEventListener('focus', (e) => {
             let inFocus = document.activeElement === e.target;
             searchFocused = inFocus;
         });
-        searchInput.addEventListener("keydown", e => {
+        searchInput.addEventListener('keydown', (e) => {
             let key = e.key;
             // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
             if (searchFocused) {
-                if (key === "ArrowUp") {
+                if (key === 'ArrowUp') {
                     if (activeIndex > 0) {
                         activeIndex -= 1;
                     } else {
                         activeIndex = (filteredItems?.length || allUrls?.length) - 1;
                     }
                 }
-                if (key === "ArrowDown") {
+                if (key === 'ArrowDown') {
                     // alert("going down");
-                    if (activeIndex < ((filteredItems?.length || allUrls?.length) - 1)) {
+                    if (activeIndex < (filteredItems?.length || allUrls?.length) - 1) {
                         activeIndex += 1;
                     } else {
                         activeIndex = 0;
                     }
                 }
                 activeEl = null;
-                document.querySelectorAll(".cmdk-link").forEach((el, index) => {
+                document.querySelectorAll('.cmdk-link').forEach((el, index) => {
                     if (index === activeIndex) {
-                        el.classList.add("cmdk-link--active");
+                        el.classList.add('cmdk-link--active');
                         activeEl = el;
                     } else {
-                        el.classList.remove("cmdk-link--active");
+                        el.classList.remove('cmdk-link--active');
                     }
                 });
             }
 
             if (activeEl) {
                 activeEl.scrollIntoView();
-                if (key === "Enter") {
-                    let href = activeEl?.getAttribute("href");
+                if (key === 'Enter') {
+                    let href = activeEl?.getAttribute('href');
                     // console.log(href);
                     window.open(href);
                 }
             }
         });
-        searchInput.addEventListener("input", (e) => {
+        searchInput.addEventListener('input', (e) => {
             let searchVal = e.target.value?.toLowerCase();
             if (searchVal?.length > 0) {
-                let filtered = allUrls.filter(urlObj => JSON.stringify(urlObj)?.toLowerCase().includes(searchVal));
+                let filtered = allUrls.filter((urlObj) =>
+                    JSON.stringify(urlObj)?.toLowerCase().includes(searchVal)
+                );
                 if (filtered?.length === 0) {
-                    console.log("no results");
+                    console.log('no results');
                     cmdkLinks.innerHTML = `<div class="cmdk-error"><center><p>0 results for <b><i> ${searchVal}</i></b></p></center></div>`;
                 } else {
                     createCMDKLinks(filtered, searchVal);
@@ -776,10 +792,13 @@
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.2/dist/markdown-it.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
-        fetch(`https://raw.githubusercontent.com/aksellsor/links/main/readme.md?token=${milliseconds}`).then(r => r.text()).then(text => {
-            const markdown = document.querySelector("#markdown");
-            var md = window.markdownit(
-                {
+        fetch(
+            `https://raw.githubusercontent.com/aksellsor/links/main/readme.md?token=${milliseconds}`
+        )
+            .then((r) => r.text())
+            .then((text) => {
+                const markdown = document.querySelector('#markdown');
+                var md = window.markdownit({
                     highlight: function (str, lang) {
                         if (lang && hljs.getLanguage(lang)) {
                             try {
@@ -788,13 +807,12 @@
                         }
 
                         return ''; // use external default escaping
-                    }
-                }
-            );
-            // var md = window.markdownit();
-            var result = md.render(text);
-            markdown.innerHTML = result;
-        });
+                    },
+                });
+                // var md = window.markdownit();
+                var result = md.render(text);
+                markdown.innerHTML = result;
+            });
     </script>
 </body>
 
