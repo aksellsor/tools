@@ -43,6 +43,25 @@ const isInViewport = function (ele) {
 };
 ```
 
+## Check if an element is visible in a scrollable container
+```js
+const isVisibleInContainer = function (ele, container) {
+    const eleTop = ele.offsetTop;
+    const eleBottom = eleTop + ele.clientHeight;
+
+    const containerTop = container.scrollTop;
+    const containerBottom = containerTop + container.clientHeight;
+
+    // The element is fully visible in the container
+    return (
+        (eleTop >= containerTop && eleBottom <= containerBottom) ||
+        // Some part of the element is visible in the container
+        (eleTop < containerTop && containerTop < eleBottom) ||
+        (eleTop < containerBottom && containerBottom < eleBottom)
+    );
+};
+```
+
 ## Swap position of two nodes in the DOM
 ```js
 const swap = function (nodeA, nodeB) {
@@ -217,4 +236,106 @@ const scrollToBeVisible = function (ele, container) {
         container.scrollTop += eleBottom - containerBottom;
     }
 };
+```
+
+## Print image button
+```html
+<div style="display: flex; flex-direction: column; justify-content: center; padding: 4rem">
+    <img id="image" src="https://via.placeholder.com/300x300" />
+    <div style="margin-top: 1rem; text-align: center">
+        <button
+            style="background-color: #63b3ed; border: none; color: #fff; cursor: pointer; padding: 0.5rem 1rem"
+            id="print"
+        >
+            Print
+        </button>
+    </div>
+</div>
+```
+```js
+document.addEventListener('DOMContentLoaded', function () {
+    // Query the element
+    const printBtn = document.getElementById('print');
+
+    printBtn.addEventListener('click', function () {
+        // Create a fake iframe
+        const iframe = document.createElement('iframe');
+
+        // Make it hidden
+        iframe.style.height = 0;
+        iframe.style.visibility = 'hidden';
+        iframe.style.width = 0;
+
+        // Set the iframe's source
+        iframe.setAttribute('srcdoc', '<html><body></body></html>');
+
+        document.body.appendChild(iframe);
+
+        iframe.contentWindow.addEventListener('afterprint', function () {
+            iframe.parentNode.removeChild(iframe);
+        });
+
+        iframe.addEventListener('load', function () {
+            // Clone the image
+            const image = document.getElementById('image').cloneNode();
+            image.style.maxWidth = '100%';
+
+            // Append the image to the iframe's body
+            const body = iframe.contentDocument.body;
+            body.style.textAlign = 'center';
+            body.appendChild(image);
+
+            image.addEventListener('load', function () {
+                // Invoke the print when the image is ready
+                iframe.contentWindow.print();
+            });
+        });
+    });
+});
+```
+
+## Add a loading indicator to iframe
+```html
+<div class="container">
+    <!-- The loading indicator -->
+    <div class="loading" id="loading">Loading</div>
+
+    <!-- The iframe -->
+    <iframe id="frame" style="opacity: 0"></iframe>
+</div>
+```
+```css
+.container {
+    /* To position the loading */
+    position: relative;
+}
+
+.loading {
+    /* Absolute position */
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    /* Take full size */
+    height: 100%;
+    width: 100%;
+
+    /* Center */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+```
+```js
+// Query the elements
+const iframeEle = document.getElementById('iframe');
+const loadingEle = document.getElementById('loading');
+
+iframeEle.addEventListener('load', function () {
+    // Hide the loading indicator
+    loadingEle.style.display = 'none';
+
+    // Bring the iframe back
+    iframeEle.style.opacity = 1;
+});
 ```
