@@ -42,3 +42,50 @@ const isInViewport = function (ele) {
     );
 };
 ```
+
+## Swap position of two nodes in the DOM
+```js
+const swap = function (nodeA, nodeB) {
+    const parentA = nodeA.parentNode;
+    const siblingA = nodeA.nextSibling === nodeB ? nodeA : nodeA.nextSibling;
+
+    // Move `nodeA` to before the `nodeB`
+    nodeB.parentNode.insertBefore(nodeA, nodeB);
+
+    // Move `nodeB` to before the sibling of `nodeA`
+    parentA.insertBefore(nodeB, siblingA);
+};
+```
+
+## Replace default 404 image
+```js
+// Assume that I want to replace all images on the page
+const images = document.querySelectorAll('img');
+
+// Loop over them
+[].forEach.call(images, function (ele) {
+    ele.addEventListener('error', function (e) {
+        e.target.src = '/path/to/404/image.png';
+    });
+});
+```
+
+## Resize iframe to fit its content
+```js
+frame.addEventListener('load', function () {
+    // Get the height of the content
+    const height = frame.contentDocument.body.scrollHeight;
+
+    // Set the height of iframe
+    frame.setAttribute('height', `${height}px`);
+});
+``
+
+## Insert HTML before or after element
+```js
+// Insert before
+ele.insertAdjacentHTML('beforebegin', html);
+
+// Insert after
+ele.insertAdjacentHTML('afterend', html);
+```
