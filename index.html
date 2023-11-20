@@ -85,7 +85,28 @@
             color: #fff;
             background-attachment: fixed;
             margin: 0;
+        }
+
+        body {
             padding: 3rem;
+        }
+
+        #markdown {
+            padding-top: 50px;
+        }
+
+        @media (max-width: 800px) {
+            body {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (min-width: 1000px) {
+
+            .container,
+            #markdown {
+                padding-top: 100px;
+            }
         }
 
         .container {
@@ -160,6 +181,16 @@
             margin-left: -6px;
         }
 
+        @media (max-width: 800px) {
+            .top-ui-link:not(.top-ui-link--search)::before {
+                content: "✎";
+            }
+
+            .top-ui-link span {
+                display: none;
+            }
+        }
+
         .top-ui-link {
             text-decoration: none;
             color: #ccc;
@@ -198,14 +229,11 @@
             user-select: none;
         }
 
-        .top-ui-link--search::after {
-            content: 'CMD+K';
-            font-weight: bold;
-        }
-
-        .container,
-        #markdown {
-            padding-top: 100px;
+        @media (min-width: 800px) and (hover: hover) {
+            .top-ui-link--search::after {
+                content: 'CMD+K';
+                font-weight: bold;
+            }
         }
 
         pre {
@@ -577,11 +605,14 @@
                         transform="translate(-4.5 -4.493)" fill="currentColor" />
                 </svg>
             </div>
-            <a href="https://github.com/aksellsor/links/edit/main/links.csv" target="_blank" class="top-ui-link">Edit
+            <a href="https://github.com/aksellsor/links/edit/main/links.csv" target="_blank"
+                class="top-ui-link"><span>Edit</span>
                 links</a>
-            <a href="https://github.com/aksellsor/links/edit/main/index.html" target="_blank" class="top-ui-link">Edit
+            <a href="https://github.com/aksellsor/links/edit/main/index.html" target="_blank"
+                class="top-ui-link"><span>Edit</span>
                 html</a>
-            <a href="https://github.com/aksellsor/links/edit/main/readme.md" target="_blank" class="top-ui-link">Edit
+            <a href="https://github.com/aksellsor/links/edit/main/readme.md" target="_blank"
+                class="top-ui-link"><span>Edit</span>
                 md</a>
         </div>
         <div id="links" style="margin-bottom: 1rem"></div>
@@ -683,20 +714,30 @@
             return JSON.stringify(result); //JSON
         }
         const createItemLinks = (urls) => {
-            links.innerHTML = null;
-            urls?.forEach((link) => {
+            let newChildren = [];
+            let done = false;
+            urls?.forEach((link, index) => {
                 let html = `<span class="url">${link.label}</span>`;
                 let item = document.createElement('a');
                 item.href = link.url;
                 item.target = '_blank';
                 item.classList = 'item-link';
                 item.innerHTML = html;
-                links.appendChild(item);
+                newChildren.push(item);
+                if (index === urls.length - 1) {
+                    done = true;
+                }
             });
+            if (done) {
+                links.replaceChildren(...newChildren);
+            }
         };
         const createCMDKLinks = (urls, keyword) => {
-            cmdkLinks.innerHTML = null;
-            urls?.forEach((link) => {
+
+            let newChildren = [];
+            let done = false;
+
+            urls?.forEach((link, index) => {
                 let html = `<span class="url">${link.label
                     ?.toLowerCase()
                     ?.replace(
@@ -708,8 +749,14 @@
                 item.target = '_blank';
                 item.classList = 'cmdk-link';
                 item.innerHTML = html;
-                cmdkLinks.appendChild(item);
+                newChildren.push(item);
+                if (index === urls.length - 1) {
+                    done = true;
+                }
             });
+            if (done) {
+                cmdkLinks.replaceChildren(...newChildren);
+            }
         };
         fetch(
             `https://raw.githubusercontent.com/aksellsor/links/main/links.csv?token=${milliseconds}`
