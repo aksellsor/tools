@@ -480,6 +480,7 @@
                 html</a>
         </div>
         <div id="links" style="margin-bottom: 1rem;"></div>
+        <div id="markdown"></div>
     </div>
     <script>
         document.querySelector("#search-form").addEventListener("submit", e => {
@@ -685,6 +686,32 @@
                 filteredItems = null;
                 createCMDKLinks(allUrls);
             }
+        });
+    </script>
+    <script src="
+https://cdn.jsdelivr.net/npm/markdown-it@13.0.2/dist/markdown-it.min.js
+"></script>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/aksellsor/links/main/highlight.css">
+    <script src="https://raw.githubusercontent.com/aksellsor/links/main/highlight.js"></script>
+    <script>
+        fetch(`https://raw.githubusercontent.com/aksellsor/links/main/readme.md?token=${milliseconds}`).then(r => r.text()).then(text => {
+            const markdown = document.querySelector("#markdown");
+            var md = window.markdownit(
+                {
+                    highlight: function (str, lang) {
+                        if (lang && hljs.getLanguage(lang)) {
+                            try {
+                                return hljs.highlight(str, { language: lang }).value;
+                            } catch (__) { }
+                        }
+
+                        return ''; // use external default escaping
+                    }
+                }
+            );
+            // var md = window.markdownit();
+            var result = md.render(text);
+            markdown.innerHTML = result;
         });
     </script>
 </body>
