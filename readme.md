@@ -14,7 +14,7 @@ const primaryColor = getComputedStyle(root).getPropertyValue('--primary-color');
 root.style.setProperty('--primary-color', 'blue'); // Set
 ```
 ```html
-<div style="--primary-color: red">This is a div</div> // Set in DOM
+<div style="--primary-color: red">This is a div</div> <!-- Set in DOM -->
 ```
 
 ## Display "leave site?" modal
