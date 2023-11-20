@@ -199,6 +199,7 @@ button.addEventListener('click', () => {
 });
 ```
 
+
 ## Wait for target element to become available
 ```js
 const observer = new MutationObserver((mutations) => {
@@ -237,6 +238,8 @@ const scrollToBeVisible = function (ele, container) {
     }
 };
 ```
+
+# More advanced stuff
 
 ## Print image button
 ```html
@@ -337,5 +340,40 @@ iframeEle.addEventListener('load', function () {
 
     // Bring the iframe back
     iframeEle.style.opacity = 1;
+});
+```
+
+## Paste an image from the clipboard
+```html
+<div class="container">
+    <div>
+        <div><kbd class="key">Ctrl</kbd> + <kbd class="key">V</kbd> in this window.</div>
+        <img class="preview" id="preview" />
+    </div>
+</div>
+```
+```css
+.container {align-items: center;display: flex;justify-content: center;height: 32rem;padding: 1rem 0;}
+.key {background-color: #f7fafc;border: 1px solid #cbd5e0;border-radius: 0.25rem;padding: 0.25rem;}
+.preview {align-items: center;border: 1px solid #cbd5e0;display: flex;justify-content: center;margin-top: 1rem;max-height: 16rem;max-width: 42rem;}
+```
+```js
+document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('paste', function (evt) {
+        const clipboardItems = evt.clipboardData.items;
+        const items = [].slice.call(clipboardItems).filter(function (item) {
+            // Filter the image items only
+            return item.type.indexOf('image') !== -1;
+        });
+        if (items.length === 0) {
+            return;
+        }
+
+        const item = items[0];
+        const blob = item.getAsFile();
+
+        const imageEle = document.getElementById('preview');
+        imageEle.src = URL.createObjectURL(blob);
+    });
 });
 ```
