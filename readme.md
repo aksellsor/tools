@@ -14,6 +14,13 @@ const primaryColor = getComputedStyle(root).getPropertyValue('--primary-color');
 root.style.setProperty('--primary-color', 'blue'); // Set
 ```
 
+## Detect dark mode using JS
+```js
+const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+const noPreference = window.matchMedia && window.matchMedia('(prefers-color-scheme: no-preference)').matches;
+```
+
 ## Display "leave site?" modal
 ![plot](https://phuoc.ng/assets/html-dom/leave-site.png)
 ```js
