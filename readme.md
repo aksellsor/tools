@@ -93,7 +93,7 @@ ele.insertAdjacentHTML('afterend', html);
 ## Go back a page
 ```js
 history.back(); // Or history.go(-1);
-``
+```
 
 ## Wrap an element around another elementer
 ```js
@@ -102,6 +102,21 @@ ele.parentNode.insertBefore(wrapper, ele);
 
 // And then, turn `ele` into a children of `wrapper`
 wrapper.appendChild(ele);
+```
+
+## Unwrap an element from parent
+```js
+// Get the parent node
+const parent = ele.parentNode;
+
+// Move all children node to the parent
+while (ele.firstChild) {
+    parent.insertBefore(ele.firstChild, ele);
+}
+
+// `ele` becomes an empty element
+// Remove it from the parent
+parent.removeChild(ele);
 ```
 
 ## Replace an element
