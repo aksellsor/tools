@@ -154,24 +154,27 @@ while (node.firstChild) {
 }
 ```
 
-## Create a full screen browser button
+## Full screen container button
 ```html
 <button id="fullscreen">Go fullscreen</button>
+<div id="container">This content will be fullscreen</div>
 ```
 ```js
-document.querySelector("#fullscreen")?.addEventListener('click', () => {
+let button = document.querySelector("#fullscreen");
+let container = document.querySelector("#container");
+button.addEventListener('click', () => {
     if (document.fullscreenEnabled) {
-        if (document.body.mozRequestFullScreen) {
+        if (container.mozRequestFullScreen) {
             // Use mozRequestFullScreen() for Firefox
             //  and other Mozilla-based browsers
-            document.body.mozRequestFullScreen();
+            container.mozRequestFullScreen();
         } else if (document.body.webkitRequestFullScreen) {
             // Use webkitEnterFullscreen() for Safari
             // and other WebKit-based browsers
-            document.body.webkitRequestFullScreen();
+            container.webkitRequestFullScreen();
         } else {
             // Use requestFullscreen() for all other browsers
-            document.body.requestFullscreen();
+            container.requestFullscreen();
         }
     }
 });
