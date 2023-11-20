@@ -57,7 +57,7 @@ const swap = function (nodeA, nodeB) {
 };
 ```
 
-## Replace default 404 image
+## Replace default 404 fallback images
 ```js
 // Assume that I want to replace all images on the page
 const images = document.querySelectorAll('img');
@@ -124,6 +124,19 @@ parent.removeChild(ele);
 ele.parentNode.replaceChild(newEle, ele);
 ```
 
+## Replace nodes in a wrapper (e.g. in a search)
+```js
+let links = document.querySelector(".links");
+let newChildren = [];
+filtered?.forEach(url => {
+    let a = document.createElement("a");
+    a.href = url.href;
+    a.innerText = url.label;
+    newChildren.push(a);
+});
+links.replaceChildren(...newChildren);
+```
+
 ## Remove all children of a node
 ```js
 // ele.innerHTML = '';
@@ -132,3 +145,35 @@ while (node.firstChild) {
     node.removeChild(node.firstChild);
 }
 ```
+## Truncate text that is overflowing using CSS
+```css
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+```
+
+## Create a full screen browser button
+```html
+<button id="fullscreen">Go fullscreen</button>
+```
+```js
+document.querySelector("#fullscreen")?.addEventListener('click', () => {
+    if (document.fullscreenEnabled) {
+        if (document.body.mozRequestFullScreen) {
+            // Use mozRequestFullScreen() for Firefox
+            //  and other Mozilla-based browsers
+            document.body.mozRequestFullScreen();
+        } else if (document.body.webkitRequestFullScreen) {
+            // Use webkitEnterFullscreen() for Safari
+            // and other WebKit-based browsers
+            document.body.webkitRequestFullScreen();
+        } else {
+            // Use requestFullscreen() for all other browsers
+            document.body.requestFullscreen();
+        }
+    }
+});
+```
+
