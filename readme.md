@@ -89,3 +89,31 @@ ele.insertAdjacentHTML('beforebegin', html);
 // Insert after
 ele.insertAdjacentHTML('afterend', html);
 ```
+
+## Go back a page
+```js
+history.back(); // Or history.go(-1);
+``
+
+## Wrap an element around another elementer
+```js
+// First, insert `wrapper` before `ele` in its parent node
+ele.parentNode.insertBefore(wrapper, ele);
+
+// And then, turn `ele` into a children of `wrapper`
+wrapper.appendChild(ele);
+```
+
+## Replace an element
+```js
+ele.parentNode.replaceChild(newEle, ele);
+```
+
+## Remove all children of a node
+```js
+// ele.innerHTML = '';
+// This method isn't recommended because it doesn't remove event handlers of child node. Hence, it might cause a memory leak if you are managing a big list of elements.
+while (node.firstChild) {
+    node.removeChild(node.firstChild);
+}
+```
