@@ -1,5 +1,5 @@
 ***
-#### Code to know
+### Code to know
 
 ## Light and dark mode favicons
 ```js
