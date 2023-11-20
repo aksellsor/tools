@@ -16,3 +16,12 @@ root.style.setProperty('--primary-color', 'blue'); // Set
 ```html
 <div style="--primary-color: red">This is a div</div> // Set in DOM
 ```
+
+## Display "leave site?" modal
+![alt text]([http://url/to/img.png](https://phuoc.ng/assets/html-dom/leave-site.png))
+```js
+window.addEventListener('beforeunload', (event) => {
+    event.preventDefault();
+    event.returnValue = '';
+});
+```
