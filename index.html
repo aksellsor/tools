@@ -587,6 +587,11 @@
             font-style: italic;
         }
     </style>
+    <style>
+        body {
+            min-height: 101vh;
+        }
+    </style>
 </head>
 
 <body>
@@ -652,60 +657,6 @@
         <div id="links" style="margin-bottom: 1rem"></div>
         <div id="markdown"></div>
     </div>
-    <style>
-        /* For best practice, move CSS below to an external CSS file. */
-        @keyframes fadeinall {
-            0% {
-                opacity: 1;
-            }
-
-            97% {
-                opacity: 0;
-            }
-
-            98% {
-                opacity: 0;
-                -webkit-transform: translateY(0);
-                transform: translateY(0);
-            }
-
-            100% {
-                opacity: 0;
-                -webkit-transform: translateY(-100%);
-                transform: translateY(-100%);
-                z-index: -1;
-            }
-        }
-
-        #fadein {
-            opacity: 1;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            -webkit-transform: translateY(0);
-            -ms-transform: translateY(0);
-            transform: translateY(0);
-            background-color: #000000;
-            z-index: 999;
-            -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-            -webkit-animation: fadeinall 0.5s normal both;
-            animation: fadeinall 0.5s normal both;
-        }
-
-        body {
-            min-height: 101vh;
-        }
-    </style>
-    <script type="text/javascript">
-        window.onload = function () {
-            setTimeout(function () {
-                document.getElementById("fadein").remove();
-            }, 500);
-        };
-    </script>
 
     <!-- GET CONTENT -->
     <script>
