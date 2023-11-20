@@ -272,6 +272,10 @@
             padding-top: 1.5rem;
             margin-top: -1rem;
         }
+
+        .cmdk-error {
+            color: #ff5555;
+        }
     </style>
     <style>
         .search-field {
@@ -425,10 +429,9 @@
     <div class="container">
         <div id="cmdk">
             <div id="cmdk__inner">
-                <form class="cmdk__top-row">
+                <form class="cmdk__top-row" id="search-form">
                     <label for="search" class="search-field">
-                        <input class="search-field__input" type="text" required="" placeholder="Search"
-                            id="search-input">
+                        <input class="search-field__input" type="text" placeholder="Search" id="search-input">
                         <div class="search-field__bg"></div>
                         <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"
                             class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
@@ -478,6 +481,10 @@
         <div id="links" style="margin-bottom: 1rem;"></div>
     </div>
     <script>
+        document.querySelector("#search-form").addEventListener("submit", e => {
+
+            e.preventDefault();
+        });
         let cmdk = document.querySelector("#cmdk");
         let cmdkInner = document.querySelector("#cmdk__inner");
         let searchFieldInput = document.querySelector(".search-field__input");
@@ -630,8 +637,13 @@
             let searchVal = e.target.value?.toLowerCase();
             if (searchVal?.length > 0) {
                 let filtered = allUrls.filter(urlObj => JSON.stringify(urlObj)?.toLowerCase().includes(searchVal));
+                if (filtered?.length === 0) {
+                    console.log("no results");
+                    cmdkLinks.innerHTML = `<div class="cmdk-error"><center><p>0 results for <b><i> ${searchVal}</i></b></p></center></div>`;
+                } else {
+                    createCMDKLinks(filtered, searchVal);
+                }
                 filteredItems = filtered;
-                createCMDKLinks(filtered, searchVal);
             } else {
                 filteredItems = null;
                 createCMDKLinks(allUrls);
