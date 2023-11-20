@@ -18,7 +18,7 @@ root.style.setProperty('--primary-color', 'blue'); // Set
 ```
 
 ## Display "leave site?" modal
-![alt text]([[http://url/to/img.png](https://phuoc.ng/assets/html-dom/leave-site.png)])
+![plot](https://phuoc.ng/assets/html-dom/leave-site.png)
 ```js
 window.addEventListener('beforeunload', (event) => {
     event.preventDefault();
