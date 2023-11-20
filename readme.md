@@ -180,3 +180,41 @@ button.addEventListener('click', () => {
 });
 ```
 
+## Wait for target element to become available
+```js
+const observer = new MutationObserver((mutations) => {
+    const targetElement = document.getElementById('my-element');
+
+    // Check if the target element has been added to the DOM
+    if (targetElement)) {
+        // Stop tracking
+        observer.disconnect();
+
+        // The target element is available, do something with it
+        console.log('Element is now available');
+    }
+});
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+});
+```
+
+## Scroll to be visible in container (e.g. using arrow keys to navigate items in scrolling list)
+```js
+const scrollToBeVisible = function (ele, container) {
+    const eleTop = ele.offsetTop;
+    const eleBottom = eleTop + ele.clientHeight;
+
+    const containerTop = container.scrollTop;
+    const containerBottom = containerTop + container.clientHeight;
+
+    if (eleTop < containerTop) {
+        // Scroll to the top of container
+        container.scrollTop -= containerTop - eleTop;
+    } else if (eleBottom > containerBottom) {
+        // Scroll to the bottom of container
+        container.scrollTop += eleBottom - containerBottom;
+    }
+};
+```
