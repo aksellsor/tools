@@ -30,7 +30,7 @@ window.addEventListener('beforeunload', (event) => {
 });
 ```
 
-## Check if an element is in the viewport
+## Check if an element is visible in the viewport
 ```js
 const isInViewport = function (ele) {
     const rect = ele.getBoundingClientRect();
