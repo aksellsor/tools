@@ -200,7 +200,7 @@ observer.observe(document.body, {
 });
 ```
 
-## Scroll to be visible in container (e.g. using arrow keys to navigate items in scrolling list)
+## Scroll an element to ensure it is visible in a scrollable container
 ```js
 const scrollToBeVisible = function (ele, container) {
     const eleTop = ele.offsetTop;
