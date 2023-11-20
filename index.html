@@ -13,6 +13,54 @@
     <meta name="msapplication-TileColor" content="#000000">
     <meta name="theme-color" content="#000000">
     <style>
+        body {
+            background: #333;
+            height: 1500px;
+        }
+
+        html {
+            scrollbar-face-color: #646464;
+            scrollbar-base-color: #646464;
+            scrollbar-3dlight-color: #646464;
+            scrollbar-highlight-color: #646464;
+            scrollbar-track-color: #000;
+            scrollbar-arrow-color: #000;
+            scrollbar-shadow-color: #646464;
+            scrollbar-dark-shadow-color: #646464;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 3px;
+        }
+
+        ::-webkit-scrollbar-button {
+            background-color: #666;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #646464;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            height: 50px;
+            background-color: #666;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background-color: #646464;
+        }
+        }
+
+        ::-webkit-resizer {
+            background-color: #666;
+        }
+
         html {
             font-size: 16px;
         }
@@ -35,7 +83,7 @@
         body {
             height: 100%;
         }
-        
+
         .container {
             max-width: 1300px;
         }
@@ -166,12 +214,12 @@
             position: fixed;
             width: 100%;
             margin: auto;
-            max-width: 650px;
-            max-height: 450px;
+            max-width: min(80vw, 650px);
+            max-height: min(50vh, 300px);
             /* padding: 1rem; */
             z-index: 99;
             height: 100%;
-            border-radius: 1.5rem 1.5rem 1rem 1rem;
+            border-radius: 1rem;
             background-color: #191616;
             outline: 1px solid #494949;
         }
@@ -184,6 +232,45 @@
             backdrop-filter: blur(15px);
             z-index: -1;
             display: block;
+        }
+
+        #cmdk-links {
+            overflow-y: auto;
+            margin-right: 1rem;
+            margin-top: 2rem;
+            height: calc(100% - 2rem);
+        }
+
+        .cmdk-link {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            padding: .5rem 1rem;
+            text-underline-position: under;
+            text-decoration-thickness: 1px;
+            text-decoration-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .cmdk-link .symbol {
+            color: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+        }
+
+        .cmdk-link--active .symbol {
+            opacity: 1;
+        }
+
+        .cmdk-link--active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .cmdk-link h {
+            color: #00E869;
+        }
+
+        .cmdk-link:first-of-type {
+            padding-top: 1.5rem;
+            margin-top: -1rem;
         }
     </style>
     <style>
@@ -200,7 +287,12 @@
             align-items: center;
             position: relative;
             isolation: isolate;
-            transform: translateY(calc((100% + 1rem) * -1));
+        }
+
+        .cmdk__top-row {
+            margin-top: -55px;
+            margin-bottom: 1rem;
+            /* transform: translateY(calc((100% + 1rem) * -1)); */
         }
 
         /* a fancy bg for showing background and border when focus. */
@@ -333,10 +425,10 @@
     <div class="container">
         <div id="cmdk">
             <div id="cmdk__inner">
-    
                 <form class="cmdk__top-row">
                     <label for="search" class="search-field">
-                        <input class="search-field__input" type="text" required="" placeholder="Search" id="search">
+                        <input class="search-field__input" type="text" required="" placeholder="Search"
+                            id="search-input">
                         <div class="search-field__bg"></div>
                         <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"
                             class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
@@ -347,7 +439,8 @@
                             </g>
                         </svg>
                         <button class="search-field__close-btn" type="reset">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
                                 <path fill-rule="evenodd"
                                     d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                     clip-rule="evenodd"></path>
@@ -355,6 +448,7 @@
                         </button>
                     </label>
                 </form>
+                <div id="cmdk-links"></div>
             </div>
         </div>
         <div id="top-ui">
@@ -404,12 +498,11 @@
         const delta = 6;
         let startX;
         let startY;
-
+        /* DISMISS ON CLICK OUTSIDE */
         cmdk.addEventListener('mousedown', function (event) {
             startX = event.pageX;
             startY = event.pageY;
         });
-
         cmdk.addEventListener('mouseup', function (e) {
             const diffX = Math.abs(e.pageX - startX);
             const diffY = Math.abs(e.pageY - startY);
@@ -425,63 +518,125 @@
                 }
             }
         });
-        /* DISMISS ON CLICK OUTSIDE */
         const keyDown = (e) => {
+            /* DISMISS ON ESCAPE */
             if (e.key === "Escape") {
                 closeCMDK();
             }
-            if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-                openCMDK();
+            /* OPEN USING CMD+K */
+            if (e.metaKey || e.ctrlKey) {
+                switch (e.code) {
+                    case 'KeyK':
+                        openCMDK();
+                        break;
+
+                }
+            }
+            if (e.altKey && e.shiftKey) {
+                switch (e.code) {
+                    case 'KeyG':
+                        window.open("https://github.com/aksellsor/links");
+                        break;
+
+                }
             }
         };
-        window.addEventListener("keydown", keyDown);
-        let urls = [];
+        document.body.addEventListener("keydown", keyDown);
+        let allUrls = [];
         let milliseconds = new Date().getTime();
-        fetch("https://raw.githubusercontent.com/aksellsor/links/main/links.json?token="+ milliseconds).then(r => r.json()).then(urls => {
-            let links =
-                document.querySelector("#links");
+        let links = document.querySelector("#links");
+        let cmdkLinks = document.querySelector("#cmdk-links");
+        const createItemLinks = (urls) => {
+            links.innerHTML = null;
             urls?.forEach(link => {
                 let html = `<span class="url">${link.label}</span>`;
                 let item = document.createElement("a");
                 item.href = link.url;
+                item.target = "_blank";
                 item.classList = "item-link";
                 item.innerHTML = html;
                 links.appendChild(item);
-                // var key = "d068343cb0feaf6b8897a4dce75b6ab5";
-                // fetch("https://api.linkpreview.net", {
-                //     method: "GET",
-                //     headers: {
-                //         'X-Linkpreview-Api-Key': key,
-                //     },
-                //     mode: "cors",
-                //     body: JSON.stringify({ q: url })
-                // })
-                //     .then((res) => res.json())
-                //     .then((response) => {
-                //         let html = `
-                //            <a href="${response.url}" class="item-link">
-                //                 <img class="img" src="${response.image}">
-                //                 <div>
-                //                     <div class="title">${response.title}</div>
-                //                     <div class="desc">${response.description}</div>
-                //                     <div class="url">${response.url}</div>
-                //                 </div>
-                //            </a>
-                //         `;
-                //         let item = document.createElement("div");
-                //         item.classList = "item";
-                //         item.innerHTML = html;
-                //         links.appendChild(item);
-                //     });
             });
+        };
+        const createCMDKLinks = (urls, keyword) => {
+            cmdkLinks.innerHTML = null;
+            urls?.forEach(link => {
+                let html = `<span class="url">${link.label?.toLowerCase()?.replace(keyword, `<h>${keyword}</h>`)}</span><span class="symbol">↵</span>`;
+                let item = document.createElement("a");
+                item.href = link.url;
+                item.target = "_blank";
+                item.classList = "cmdk-link";
+                item.innerHTML = html;
+                cmdkLinks.appendChild(item);
+            });
+        };
+        fetch(`https://raw.githubusercontent.com/aksellsor/links/main/links.json?token=${milliseconds}`).then(r => r.json()).then(urls => {
+            allUrls = urls;
+            createItemLinks(urls);
+            createCMDKLinks(urls);
         });
-        // const urls = [
-        //     { url: "https://css-mask-generator.com", label: "CSS Mask Generator" },
-        //     { url: "https://bennettfeely.com/clippy", label: "Clippy - clip path generator" },
-        //     { url: "https://getcssscan.com/css-box-shadow-examples", label: "CSS Box Shadow Examples" },
-        //     { url: "https://uiverse.io/buttons", label: "UIverse" },
-        //     { url: "https://studio.swiperjs.com", label: "SwiperJS Studio" },
-        // ];
+
+
+        /* SEARCH */
+        let searchFocused = null;
+        let searchInput = document.querySelector("#search-input");
+        let activeEl = null;
+        let activeIndex = -1;
+        let filteredItems = null;
+        searchInput.addEventListener("focus", (e) => {
+            let inFocus = document.activeElement === e.target;
+            searchFocused = inFocus;
+        });
+        searchInput.addEventListener("keydown", e => {
+            let key = e.key;
+            // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+            if (searchFocused) {
+                if (key === "ArrowUp") {
+                    if (activeIndex > 0) {
+                        activeIndex -= 1;
+                    } else {
+                        activeIndex = (filteredItems?.length || allUrls?.length) - 1;
+                    }
+                }
+                if (key === "ArrowDown") {
+                    // alert("going down");
+                    if (activeIndex < ((filteredItems?.length || allUrls?.length) - 1)) {
+                        activeIndex += 1;
+                    } else {
+                        activeIndex = 0;
+                    }
+                }
+                activeEl = null;
+                document.querySelectorAll(".cmdk-link").forEach((el, index) => {
+                    if (index === activeIndex) {
+                        el.classList.add("cmdk-link--active");
+                        activeEl = el;
+                    } else {
+                        el.classList.remove("cmdk-link--active");
+                    }
+                });
+            }
+
+            if (activeEl) {
+                activeEl.scrollIntoView();
+                if (key === "Enter") {
+                    let href = activeEl?.getAttribute("href");
+                    // console.log(href);
+                    window.open(href);
+                }
+            }
+        });
+        searchInput.addEventListener("input", (e) => {
+            let searchVal = e.target.value?.toLowerCase();
+            if (searchVal?.length > 0) {
+                let filtered = allUrls.filter(urlObj => JSON.stringify(urlObj)?.toLowerCase().includes(searchVal));
+                filteredItems = filtered;
+                createCMDKLinks(filtered, searchVal);
+            } else {
+                filteredItems = null;
+                createCMDKLinks(allUrls);
+            }
+        });
     </script>
 </body>
 
