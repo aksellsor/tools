@@ -1,6 +1,18 @@
 ***
 ### Code to know
 
+## Prevent body scroll when modal is open (but keeping scroll position)
+```css
+body.noscroll {
+    height: 100vh;
+    width: 100vw;
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+```
+
 ## Light and dark mode favicons
 ```js
 <link href="light-mode-favicon.png" rel="icon" media="(prefers-color-scheme: light)"/>
