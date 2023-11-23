@@ -1,6 +1,11 @@
 ***
 ### Code to know
 
+## Freeze browser window after x delay (useful for debugging :hover, :focus effects)
+```css
+setTimeout(function(){debugger;}, 2000)
+```
+
 ## Prevent body scroll when modal is open (but keeping scroll position)
 ```css
 body.noscroll {
