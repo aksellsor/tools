@@ -987,18 +987,6 @@
                 // }
             });
     </script>
-    <script>
-       let listItems = document.querySelectorAll('li'))
-          .filter(el => el.textContent.includes('[ ]');
-        let listItemsLoaded = listItems?.length > 0;
-        setTimeout(() => {
-          Array.from(listItems)?.forEach(el => {
-              el.style.listStyle = "none";
-              el.style.marginLeft = "-40px";
-            el.innerHTML = el.innerHTML.replace('[ ]',"<input type='checkbox' checked='false'/>").replace('[x]',"<input type='checkbox' checked='true'/>");
-          });    
-        });   
-    </script>
 </body>
 
 </html>
