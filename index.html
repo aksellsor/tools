@@ -989,7 +989,7 @@
     </script>
 
     <script>
-        ;(function(){
+        document.addEventListener('DOMContentLoaded', function () {
             setTimeout(()=>{
               let liTags = document.querySelectorAll('li');
               let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]'));
@@ -1000,7 +1000,7 @@
                     el.innerHTML = el.innerHTML.replace('[ ]',"<input type='checkbox' checked='false'/>").replace('[x]',"<input type='checkbox' checked='true'/>");
                 });
             },[100]);
-        })();
+        });
     </script>
 </body>
 
