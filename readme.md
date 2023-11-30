@@ -1,6 +1,6 @@
 ** Tech to learn
-* [ ] GSAP (https://gsap.com/ "Gsap.com")
-* [ ] [LazySizes]([https://www.google.com](https://afarkas.github.io/lazysizes/index.html) "LazySizes docs")
+* [ ] [GSAP](https://gsap.com/ "Gsap website")
+* [ ] [LazySizes](https://afarkas.github.io/lazysizes/index.html "LazySizes docs")
 
 ***
 ### Code to know
