@@ -990,10 +990,11 @@
 
     <script>
         ;(function(){
-          let boxes = 
-            Array.from(document.querySelectorAll('li')).filter(el => el.textContent.includes('[ ]'));
-            let hasBoxes = boxes?.length > 0;
+            let liTags = document.querySelectorAll('li');
+            let hasBoxes = liTags?.length > 0;
             setTimeout(()=>{
+                
+          let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]'));
                 console.log(boxes);
                 boxes.forEach(el => {
                 console.log(el);
