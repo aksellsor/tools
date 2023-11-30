@@ -1,7 +1,6 @@
 ** Tech to learn
-[ ] GSAP (https://gsap.com/ "Gsap.com")
-[ ] LazySizes (https://afarkas.github.io/lazysizes/index.html)
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+* [ ] GSAP (https://gsap.com/ "Gsap.com")
+* [ ] [LazySizes]([https://www.google.com](https://afarkas.github.io/lazysizes/index.html) "LazySizes docs")
 
 ***
 ### Code to know
