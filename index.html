@@ -988,12 +988,14 @@
             });
     </script>
     <script>
-        Array.from(document.querySelectorAll('li'))
-  .filter(el => el.textContent.includes('[ ]'))?.forEach(el => {
-      el.style.listStyle = "none";
-      el.style.marginLeft = "-40px";
-    el.innerHTML = el.innerHTML.replace('[ ]',"<input type='checkbox' checked='false'/>").replace('[x]',"<input type='checkbox' checked='true'/>");
-  });
+        document.addEventListener('DOMContentLoaded', function () {
+                Array.from(document.querySelectorAll('li'))
+          .filter(el => el.textContent.includes('[ ]'))?.forEach(el => {
+              el.style.listStyle = "none";
+              el.style.marginLeft = "-40px";
+            el.innerHTML = el.innerHTML.replace('[ ]',"<input type='checkbox' checked='false'/>").replace('[x]',"<input type='checkbox' checked='true'/>");
+          });        
+        });
     </script>
 </body>
 
