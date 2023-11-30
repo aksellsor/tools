@@ -993,7 +993,7 @@
             let liTags = document.querySelectorAll('li');
             let hasBoxes = liTags?.length > 0;
             setTimeout(()=>{
-                
+                console.log(liTags, hasBoxes);
           let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]'));
                 console.log(boxes);
                 boxes.forEach(el => {
