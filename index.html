@@ -982,7 +982,7 @@
                if (markdown.innerHTML?.length > 0) {
                    
               let liTags = document.querySelectorAll('li');
-              let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]'));
+              let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]') || el.textContent.includes('[x]'));
                 boxes.forEach(el => {
                 console.log(el);
                     el.style.listStyle = "none";
