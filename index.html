@@ -990,19 +990,16 @@
 
     <script>
         ;(function(){
-            let liTags = document.querySelectorAll('li');
-            let hasBoxes = liTags?.length > 0;
             setTimeout(()=>{
-                console.log(liTags, hasBoxes);
-          let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]'));
-                console.log(boxes);
+              let liTags = document.querySelectorAll('li');
+              let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]'));
                 boxes.forEach(el => {
                 console.log(el);
                     el.style.listStyle = "none";
                     el.style.marginLeft = "-40px";
                     el.innerHTML = el.innerHTML.replace('[ ]',"<input type='checkbox' checked='false'/>").replace('[x]',"<input type='checkbox' checked='true'/>");
                 });
-            },[hasBoxes]);
+            },[3000]);
         })();
     </script>
 </body>
