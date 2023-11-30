@@ -979,18 +979,8 @@
                 // var md = window.markdownit();
                 var result = md.render(text);
                 markdown.innerHTML = result;
-                // if (markdown.innerHTML?.length > 0) {
-                //     document.querySelectorAll("code").forEach(el => {
-                //         let lang = el.classList.value.split("-")[1];
-                //         console.log(lang);
-                //     });
-                // }
-            });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            setTimeout(()=>{
+               if (markdown.innerHTML?.length > 0) {
+                   
               let liTags = document.querySelectorAll('li');
               let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]'));
                 boxes.forEach(el => {
@@ -999,8 +989,12 @@
                     el.style.marginLeft = "-40px";
                     el.innerHTML = el.innerHTML.replace('[ ]',"<input type='checkbox' checked='false'/>").replace('[x]',"<input type='checkbox' checked='true'/>");
                 });
-            },[1000]);
-        });
+                //     document.querySelectorAll("code").forEach(el => {
+                //         let lang = el.classList.value.split("-")[1];
+                //         console.log(lang);
+                //     });
+               }
+            });
     </script>
 </body>
 
