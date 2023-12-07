@@ -1,4 +1,8 @@
 ***
+### AI Tools
+* Generate music based on Genre and lyrics [Suno]([https://gsap.com/](https://discord.com/invite/suno-ai) "Suno Discord")
+
+***
 ### Tech to learn
 * [ ] [GSAP](https://gsap.com/ "Gsap website")
 * [ ] [LazySizes](https://afarkas.github.io/lazysizes/index.html "LazySizes docs")
