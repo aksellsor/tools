@@ -1,6 +1,6 @@
 ***
 ### AI Tools
-* Generate music based on Genre and lyrics [Suno]([https://gsap.com/](https://discord.com/invite/suno-ai) "Suno Discord")
+* [Suno - Generate music based on Genre and lyrics]([https://gsap.com/](https://discord.com/invite/suno-ai) "Suno Discord")
 
 ***
 ### Tech to learn
