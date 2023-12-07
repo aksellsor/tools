@@ -1,7 +1,7 @@
 ***
 ### AI Tools
-* [Suno - Generate vocals and music based on genre and lyrics]([https://gsap.com/](https://discord.com/invite/suno-ai) "Suno Discord")
-* [Waveform musicgen - Generate instrumentals based on text prompts](https://waveformer.replicate.dev/ "Waveform musicgen")
+* [Suno]([https://gsap.com/](https://discord.com/invite/suno-ai) "Suno Discord") - Generate vocals and music based on genre and lyrics
+* [Waveform musicgen](https://waveformer.replicate.dev/ "Waveform musicgen") - Generate instrumentals based on text prompts
 
 
 ***
