@@ -1,5 +1,6 @@
 ***
 ### AI Tools
+* [Replicate](https://replicate.com/ "Replicate") - Tons of APIs for Generative AI
 * [Suno](https://gsap.com/](https://discord.com/invite/suno-ai) "Suno Discord") - Generate vocals and music based on genre and lyrics
 * [Waveform musicgen](https://waveformer.replicate.dev/ "Waveform musicgen") - Generate instrumentals based on text prompts
 * [Leiapix](https://convert.leiapix.com/animation "Leiapix") - Generate 3D Depth video loops from image
