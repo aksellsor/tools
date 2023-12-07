@@ -5,6 +5,7 @@
 * [Leiapix](https://convert.leiapix.com/animation "Leiapix") - Generate 3D Depth video loops from image
 * [Animated Drawings](https://sketch.metademolab.com/ "Animated Drawings") - Generate animated character with limbs from drawing
 * [Pika Labs](https://discord.com/invite/pika "Pika labs") - Discord bot for generating videos from text or image
+* [Capcut Video Upscaler](https://www.capcut.com/tools/ai-video-upscaler "Capcut video upscaler") - Upscale video using AI for free
 
 
 ***
