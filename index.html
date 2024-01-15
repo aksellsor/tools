@@ -731,9 +731,9 @@
             }
             /* OPEN USING CMD+K */
             if (e.metaKey || e.ctrlKey) {
-                e.preventDefault();
                 switch (e.code) {
                     case 'KeyK':
+                        e.preventDefault();
                         openCMDK();
                         break;
                 }
