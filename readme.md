@@ -1,10 +1,4 @@
 ***
-### Roadmap 2024
-* [ ] Umbraco 12 API Boilerplate
-* [ ] Next.js frontend Boilerplate for Umb12 API
-* [ ] Internal Node.js server for Aksell tools
-
-***
 ### AI Tools
 * [Replicate](https://replicate.com/ "Replicate") - Tons of APIs for Generative AI
 * [Suno](https://gsap.com/](https://discord.com/invite/suno-ai) "Suno Discord") - Generate vocals and music based on genre and lyrics
