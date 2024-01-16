@@ -16,6 +16,24 @@
         color="#00c458" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta name="theme-color" content="#000000" />
+    <!-- Primary Meta Tags -->
+    <title>Aksell Tools</title>
+    <meta name="title" content="Aksell Tools" />
+    <meta name="description" content="Useful tools from the Aksell Dev team" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Aksell Tools" />
+    <meta property="og:description" content="Useful tools from the Aksell Dev team" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/aksellsor/links/main/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Aksell Tools" />
+    <meta property="twitter:description" content="Useful tools from the Aksell Dev team" />
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/aksellsor/links/main/og-image.jpg" />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
     <style>
         @media (hover: hover) {
             body {
@@ -129,7 +147,8 @@
         }
 
 
-        #markdown, .container {
+        #markdown,
+        .container {
             padding-top: 50px;
         }
 
@@ -676,7 +695,7 @@
         <div id="links" style="margin-bottom: 1rem"></div>
         <div id="markdown"></div>
     </div>
-</script>
+    </script>
     <!-- GET CONTENT -->
     <script>
         document.querySelector('#search-form').addEventListener('submit', (e) => {
@@ -972,21 +991,21 @@
                 // var md = window.markdownit();
                 var result = md.render(text);
                 markdown.innerHTML = result;
-               if (markdown.innerHTML?.length > 0) {
-                   
-              let liTags = document.querySelectorAll('li');
-              let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]') || el.textContent.includes('[x]'));
-                boxes.forEach(el => {
-                console.log(el);
-                    el.style.listStyle = "none";
-                    el.style.marginLeft = "-40px";
-                    el.innerHTML = el.innerHTML.replace('[ ]',"<input type='checkbox' />").replace('[x]',"<input type='checkbox' checked='true'/>");
-                });
-                //     document.querySelectorAll("code").forEach(el => {
-                //         let lang = el.classList.value.split("-")[1];
-                //         console.log(lang);
-                //     });
-               }
+                if (markdown.innerHTML?.length > 0) {
+
+                    let liTags = document.querySelectorAll('li');
+                    let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]') || el.textContent.includes('[x]'));
+                    boxes.forEach(el => {
+                        console.log(el);
+                        el.style.listStyle = "none";
+                        el.style.marginLeft = "-40px";
+                        el.innerHTML = el.innerHTML.replace('[ ]', "<input type='checkbox' />").replace('[x]', "<input type='checkbox' checked='true'/>");
+                    });
+                    //     document.querySelectorAll("code").forEach(el => {
+                    //         let lang = el.classList.value.split("-")[1];
+                    //         console.log(lang);
+                    //     });
+                }
             });
     </script>
 </body>
