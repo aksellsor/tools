@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="apple-touch-icon" sizes="180x180"
-        href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/apple-touch-icon.png" />
+        href="https://raw.githubusercontent.com/aksellsor/tools/main/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32"
-        href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/favicon-32x32.png" />
+        href="https://raw.githubusercontent.com/aksellsor/tools/main/favicons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16"
-        href="https://raw.githubusercontent.com/aksellsor/links/main/favicons" />
-    <link rel="manifest" href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/site.webmanifest" />
-    <link rel="mask-icon" href="https://raw.githubusercontent.com/aksellsor/links/main/favicons/safari-pinned-tab.svg"
+        href="https://raw.githubusercontent.com/aksellsor/tools/main/favicons" />
+    <link rel="manifest" href="https://raw.githubusercontent.com/aksellsor/tools/main/favicons/site.webmanifest" />
+    <link rel="mask-icon" href="https://raw.githubusercontent.com/aksellsor/tools/main/favicons/safari-pinned-tab.svg"
         color="#00c458" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta name="theme-color" content="#000000" />
@@ -24,13 +24,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Aksell Tools" />
     <meta property="og:description" content="Useful tools from the Aksell Dev team" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/aksellsor/links/main/og-image.jpg" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/aksellsor/tools/main/og-image.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Aksell Tools" />
     <meta property="twitter:description" content="Useful tools from the Aksell Dev team" />
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/aksellsor/links/main/og-image.jpg" />
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/aksellsor/tools/main/og-image.jpg" />
 
     <!-- Meta Tags Generated with https://metatags.io -->
     <style>
@@ -674,20 +674,20 @@
                         transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
                 </g>
             </svg>
-            <div href="https://github.com/aksellsor/links/edit/main/links.csv" class="top-ui-link top-ui-link--search">
+            <div href="https://github.com/aksellsor/tools/edit/main/links.csv" class="top-ui-link top-ui-link--search">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 27 27.007">
                     <path id="Icon_ionic-ios-search" data-name="Icon ionic-ios-search"
                         d="M31.184,29.545l-7.509-7.58a10.7,10.7,0,1,0-1.624,1.645l7.46,7.53a1.156,1.156,0,0,0,1.631.042A1.163,1.163,0,0,0,31.184,29.545ZM15.265,23.7a8.45,8.45,0,1,1,5.977-2.475A8.4,8.4,0,0,1,15.265,23.7Z"
                         transform="translate(-4.5 -4.493)" fill="currentColor" />
                 </svg>
             </div>
-            <a href="https://github.com/aksellsor/links/edit/main/links.csv" target="_blank"
+            <a href="https://github.com/aksellsor/tools/edit/main/links.csv" target="_blank"
                 class="top-ui-link"><span>Edit</span>
                 links</a>
-            <a href="https://github.com/aksellsor/links/edit/main/index.html" target="_blank"
+            <a href="https://github.com/aksellsor/tools/edit/main/index.html" target="_blank"
                 class="top-ui-link"><span>Edit</span>
                 html</a>
-            <a href="https://github.com/aksellsor/links/edit/main/readme.md" target="_blank"
+            <a href="https://github.com/aksellsor/tools/edit/main/readme.md" target="_blank"
                 class="top-ui-link"><span>Edit</span>
                 md</a>
         </div>
@@ -759,7 +759,7 @@
             if (e.altKey && e.shiftKey) {
                 switch (e.code) {
                     case 'KeyG':
-                        window.open('https://github.com/aksellsor/links');
+                        window.open('https://github.com/aksellsor/tools');
                         break;
                 }
             }
@@ -840,7 +840,7 @@
             }
         };
         fetch(
-            `https://raw.githubusercontent.com/aksellsor/links/main/links.csv?token=${milliseconds}`
+            `https://raw.githubusercontent.com/aksellsor/tools/main/links.csv?token=${milliseconds}`
         )
             .then((r) => r.text())
             .then((csv) => {
@@ -850,7 +850,7 @@
                 createItemLinks(parsed);
                 createCMDKLinks(parsed);
             });
-        // fetch(`https://raw.githubusercontent.com/aksellsor/links/main/links.json?token=${milliseconds}`).then(r => r.json()).then(urls => {
+        // fetch(`https://raw.githubusercontent.com/aksellsor/tools/main/links.json?token=${milliseconds}`).then(r => r.json()).then(urls => {
         //     console.log('urls', urls);
         //     allUrls = urls;
         //     createItemLinks(urls);
@@ -971,7 +971,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
         fetch(
-            `https://raw.githubusercontent.com/aksellsor/links/main/readme.md?token=${milliseconds}`
+            `https://raw.githubusercontent.com/aksellsor/tools/main/readme.md?token=${milliseconds}`
         )
             .then((r) => r.text())
             .then((text) => {
