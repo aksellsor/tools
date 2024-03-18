@@ -35,7 +35,7 @@
     color="#00c458" />
 ```
 
-## Add Github Repo hotkey shortcut
+## Add Github Repo hotkey shortcut (alt + shift + g)
 ```js
 const keyDown = (e) => {
     if (e.altKey && e.shiftKey) {
