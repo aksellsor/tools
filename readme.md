@@ -1,4 +1,8 @@
 ***
+### Internal Tools
+* [Aksell QR-code generator](https://aksell.dev/qr "Aksell QR-code generator") - Customizable and downloadable svg qr code generator
+
+***
 ### AI Tools
 * [Replicate](https://replicate.com/ "Replicate") - Tons of APIs for Generative AI
 * [Suno](https://gsap.com/](https://discord.com/invite/suno-ai) "Suno Discord") - Generate vocals and music based on genre and lyrics
