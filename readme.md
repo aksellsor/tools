@@ -35,6 +35,20 @@
     color="#00c458" />
 ```
 
+## Add Github Repo hotkey shortcut
+```js
+const keyDown = (e) => {
+    if (e.altKey && e.shiftKey) {
+        switch (e.code) {
+            case 'KeyG':
+                window.open('https://github.com/aksellsor/tools');
+                break;
+        }
+    }
+};
+document.body.addEventListener('keydown', keyDown);
+```
+
 ## Create new Umbraco project
 * [Find latest Umbraco template](https://www.nuget.org/packages/Umbraco.Templates "Nuget")
 ```
