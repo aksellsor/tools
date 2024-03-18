@@ -13,10 +13,23 @@
 ### Tech to learn
 * [ ] [GSAP](https://gsap.com/ "Gsap website")
 * [ ] [LazySizes](https://afarkas.github.io/lazysizes/index.html "LazySizes docs")
-* [ ] Express
 
 ***
 ### Code to know
+## Add Aksell favicon for small internal projects:
+* [Find latest Umbraco template](https://www.nuget.org/packages/Umbraco.Templates "Nuget")
+```
+<!-- FAVICONS -->
+<link rel="apple-touch-icon" sizes="180x180"
+    href="https://aksellsor.github.io/global/favicons/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32"
+    href="https://aksellsor.github.io/global/favicons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16"
+    href="https://aksellsor.github.io/global/favicons" />
+<link rel="manifest" href="https://aksellsor.github.io/global/favicons/site.webmanifest" />
+<link rel="mask-icon" href="https://aksellsor.github.io/global/favicons/safari-pinned-tab.svg"
+    color="#00c458" />
+```
 
 ## Create new Umbraco project
 * [Find latest Umbraco template](https://www.nuget.org/packages/Umbraco.Templates "Nuget")
