@@ -16,8 +16,8 @@
 
 ***
 ### Code to know
+
 ## Add Aksell favicon for small internal projects:
-* [Find latest Umbraco template](https://www.nuget.org/packages/Umbraco.Templates "Nuget")
 ```html
 <!-- FAVICONS -->
 <link rel="apple-touch-icon" sizes="180x180"
