@@ -16,7 +16,6 @@
 
 ***
 ### Recommended React packages
-<img src="https://madewithnetworkfra.fra1.digitaloceanspaces.com/spatie-space-production/29508/react-responsive-2.jpg" width="240"/>
 * [React Responsive](https://contra.io/react-responsive/ "React Responsive") - Media Query wrapper for React
 
 ***
