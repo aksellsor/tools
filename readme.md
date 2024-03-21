@@ -15,6 +15,11 @@
 * [Playground](https://playground.com/ "Playground") - Like Miro, but with AI tools
 
 ***
+### Recommended React packages
+![alt text](https://madewithnetworkfra.fra1.digitaloceanspaces.com/spatie-space-production/29508/react-responsive-2.jpg)
+* [React Responsive - meadie queries](https://contra.io/react-responsive/ "React Responsive")
+
+***
 ### Tech to learn
 * [ ] [GSAP](https://gsap.com/ "Gsap website")
 * [ ] [LazySizes](https://afarkas.github.io/lazysizes/index.html "LazySizes docs")
