@@ -804,11 +804,13 @@
                 let html = `<span class="url">${link.label}</span>`;
                 let item = document.createElement('a');
                 let category = link.category;
-                if(!Array.isArray(categories[category])){
-                    categories[category] = [];
+                let validCategory = category.replace(/ /g,""); // Remove spaces
+                if(!Array.isArray(categories[validCategory])){
+                    categories[validCategory] = [];
+                    categories[validCategory].push(item);
                 }
                 else {
-                    categories[category].push(item);
+                    categories[validCategory].push(item);
                 }
                 item.href = link.url;
                 item.target = '_blank';
