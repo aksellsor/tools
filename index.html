@@ -823,10 +823,10 @@
                 let validCategory = category?.replace(/ /g,""); // Remove spaces
                 if(!Array.isArray(categories[validCategory])){
                     categories[validCategory] = [];
-                    categories[validCategory].push(item);
+                    categories[validCategory].push(link);
                 }
                 else {
-                    categories[validCategory].push(item);
+                    categories[validCategory].push(link);
                 }
                 if (index === urls.length - 1) {
                     done = true;
