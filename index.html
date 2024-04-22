@@ -916,10 +916,9 @@
             .then((csv) => {
                 let json = csvJSON(csv);
                 let parsed = JSON.parse(json)?.filter((item) => item.url?.length > 0);
-                let sorted = parsed?.sort((a,b,) => {return a.category?.localeCompare(b?.category)})
-                allUrls = sorted;
-                createItemLinks(sorted);
-                createCMDKLinks(sorted);
+                allUrls = parsed;
+                createItemLinks(parsed);
+                createCMDKLinks(parsed);
             });
         // fetch(`https://raw.githubusercontent.com/aksellsor/tools/main/links.json?token=${milliseconds}`).then(r => r.json()).then(urls => {
         //     console.log('urls', urls);
