@@ -700,7 +700,8 @@
                 md</a>
         </div>
         <div id="links" style="margin-bottom: 1rem"></div>
-        <div id="grouped-links" style="margin-bottom: 1rem"></div>
+        <div class="link-group"><span style="opacity:0.7;"><small>Category:</small></span><span>Links</span></div>
+        <div id="grouped-links"></div>
         <div id="markdown"></div>
     </div>
     </script>
@@ -851,7 +852,7 @@
                     groupList.classList.add("links");
                     
                     groupItems?.forEach((link,index) => createLink(link,index,null,groupList));
-                    title.innerHTML = `<span style="opacity:0.7;"><small>Category:</small></span> ${groupTitle}`;
+                    title.innerHTML = `${groupTitle}`;
                     
                     group.appendChild(title);
                     group.appendChild(groupList);
