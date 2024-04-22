@@ -863,10 +863,9 @@
                     title.classList.add("link-group-title");
                     group.classList.add("links");
                     
-                    groupItems?.forEach((link,index) => createLink(link,index,null,group));
                     title.innerHTML = `${groupTitle}`;
-                    
                     group.appendChild(title);
+                    groupItems?.forEach((link,index) => createLink(link,index,null,group));
                     allGroups.appendChild(group);
                 });
                 // links.replaceChildren(...newChildren);
