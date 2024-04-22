@@ -199,8 +199,12 @@
             margin-left: -180px;
             max-width: 180px;
         }
+        .labels {
+            display:grid;
+            grid-template-columns: 180px 1fr;
+        }
         @media(max-width: 800px) {
-            .link-group.labels {
+            .labels {
                 display:none;
             }
             .link-group-title {
@@ -719,7 +723,7 @@
                 md</a>
         </div>
         <div id="links" style="margin-bottom: 1rem"></div>
-        <div class="link-group labels" style="border:none;">
+        <div class="labels" style="border:none;">
             <span style="opacity:0.7;"><small>Categories:</small></span>
             <span style="opacity:0.7;"><small>Links:</small></span>
         </div>
