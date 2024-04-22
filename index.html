@@ -796,6 +796,29 @@
             //return result; //JavaScript object
             return JSON.stringify(result); //JSON
         }
+        const createGroupedItemLinks = (urls) => {
+            let newChildren = [];
+            let categories = new Set();
+            let done = false;
+            urls?.forEach((link, index) => {
+                let html = `<span class="url">${link.label}</span>`;
+                let item = document.createElement('a');
+                let category = link.category;
+                categories.add(category);
+                item.href = link.url;
+                item.target = '_blank';
+                item.classList = 'item-link';
+                item.innerHTML = html;
+                newChildren.push(item);
+                if (index === urls.length - 1) {
+                    done = true;
+                }
+            });
+            if (done) {
+                console.log([...categories]);
+                links.replaceChildren(...newChildren);
+            }
+        };
         const createItemLinks = (urls) => {
             let newChildren = [];
             let done = false;
