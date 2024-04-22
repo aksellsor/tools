@@ -845,13 +845,13 @@
                     groupList.classList.add("links");
                     
                     groupItems?.forEach((link,index) => createLink(link,index,null,groupList));
-                    title.innerHTML = groupTitle;
+                    title.innerHTML = `Category: ${groupTitle}`;
                     
                     group.appendChild(title);
                     group.appendChild(groupList);
                     allGroups.appendChild(group);
                 });
-                links.replaceChildren(...newChildren);
+                // links.replaceChildren(...newChildren);
             }
         };
         const createCMDKLinks = (urls, keyword) => {
