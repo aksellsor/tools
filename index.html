@@ -191,10 +191,13 @@
             border-top:1px solid rgba(150,150,150,0.3);
             padding-top:.25rem;
             margin-top:.25rem;
+            padding-left:180px;
         }
         .link-group-title {
             margin-top:0.5rem;
             width:100%;
+            margin-left: -180px;
+            max-width: 180px;
         }
         @media(max-width: 800px) {
             .link-group.labels {
@@ -202,6 +205,12 @@
             }
             .link-group-title {
                 width:max-content;
+                max-width:unset;
+                margin-right:2rem;
+                margin-left:0;
+            }
+            .link-group {
+                padding-left:0px;
             }
         }
         .item-link {
