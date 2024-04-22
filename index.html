@@ -888,7 +888,7 @@
             let newChildren = [];
             let done = false;
 
-            urls?.sort((a,b) => a.category ? +1 : -1)?.forEach((link, index) => {
+            urls?.sort((a,b) => a.category ? -1 : +1)?.forEach((link, index) => {
                 let html = `<span style="opacity:0.7;text-transform:uppercase;"><small>${link.category}</small></span><span class="url">${link.label
                     ?.toLowerCase()
                     ?.replace(
