@@ -799,12 +799,17 @@
         const createItemLinks = (urls) => {
             let newChildren = [];
             let done = false;
-            let categories = new Set();
+            let categories = {};
             urls?.forEach((link, index) => {
                 let html = `<span class="url">${link.label}</span>`;
                 let item = document.createElement('a');
-                categories.add(link.category);
-                console.log(link);
+                let category = link.category;
+                if(!Array.isArray(categories[category])){
+                    categories[category] = [];
+                }
+                else {
+                    categories[category].push(item);
+                }
                 item.href = link.url;
                 item.target = '_blank';
                 item.classList = 'item-link';
@@ -815,6 +820,7 @@
                 }
             });
             if (done) {
+                console.log(categories);
                 links.replaceChildren(...newChildren);
             }
         };
