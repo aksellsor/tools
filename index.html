@@ -888,7 +888,7 @@
             let newChildren = [];
             let done = false;
 
-            urls?.sort((a,b,) => {return a.category?.localeCompare(b?.category)}).forEach((link, index) => {
+            urls?.forEach((link, index) => {
                 let html = `<span style="opacity:0.7;text-transform:uppercase;"><small>${link.category}</small></span><span class="url">${link.label
                     ?.toLowerCase()
                     ?.replace(
@@ -916,9 +916,10 @@
             .then((csv) => {
                 let json = csvJSON(csv);
                 let parsed = JSON.parse(json)?.filter((item) => item.url?.length > 0);
-                allUrls = parsed;
-                createItemLinks(parsed);
-                createCMDKLinks(parsed);
+                let sorted = parsed?.sort((a,b,) => {return a.category?.localeCompare(b?.category)})
+                allUrls = sorted;
+                createItemLinks(sorted);
+                createCMDKLinks(sorted);
             });
         // fetch(`https://raw.githubusercontent.com/aksellsor/tools/main/links.json?token=${milliseconds}`).then(r => r.json()).then(urls => {
         //     console.log('urls', urls);
