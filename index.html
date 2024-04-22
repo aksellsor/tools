@@ -803,8 +803,7 @@
             urls?.forEach((link, index) => {
                 let html = `<span class="url">${link.label}</span>`;
                 let item = document.createElement('a');
-                let category = link.category;
-                categories.add(category);
+               console.log(link);
                 item.href = link.url;
                 item.target = '_blank';
                 item.classList = 'item-link';
@@ -815,7 +814,6 @@
                 }
             });
             if (done) {
-                console.log([...categories]);
                 links.replaceChildren(...newChildren);
             }
         };
@@ -1020,7 +1018,6 @@
                     let liTags = document.querySelectorAll('li');
                     let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]') || el.textContent.includes('[x]'));
                     boxes.forEach(el => {
-                        console.log(el);
                         el.style.listStyle = "none";
                         el.style.marginLeft = "-40px";
                         el.innerHTML = el.innerHTML.replace('[ ]', "<input type='checkbox' />").replace('[x]', "<input type='checkbox' checked='true'/>");
