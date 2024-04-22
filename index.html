@@ -798,13 +798,27 @@
             //return result; //JavaScript object
             return JSON.stringify(result); //JSON
         }
+        const createLink = (link,index,arrayToPushTo,parentToAppendTo) => {
+                let html = `<span class="url">${link.label}</span>`;
+                let item = document.createElement('a');
+                
+                item.href = link.url;
+                item.target = '_blank';
+                item.classList = 'item-link';
+                item.innerHTML = html;
+                if(Array.isArray(arrayToPushTo){
+                    arrayToPushTo.push(item);
+                }
+                if(parentToAppendTo) {
+                    parentToAppendTo?.appendChild(item);
+                }
+        }
         const createItemLinks = (urls) => {
             let newChildren = [];
             let done = false;
             let categories = {};
             urls?.forEach((link, index) => {
-                let html = `<span class="url">${link.label}</span>`;
-                let item = document.createElement('a');
+                createLink(link,index,newChildren);
                 let category = link.category;
                 let validCategory = category?.replace(/ /g,""); // Remove spaces
                 if(!Array.isArray(categories[validCategory])){
@@ -814,11 +828,6 @@
                 else {
                     categories[validCategory].push(item);
                 }
-                item.href = link.url;
-                item.target = '_blank';
-                item.classList = 'item-link';
-                item.innerHTML = html;
-                newChildren.push(item);
                 if (index === urls.length - 1) {
                     done = true;
                 }
@@ -834,9 +843,9 @@
                     group.classList.add("link-group");
                     title.classList.add("link-group-title");
                     groupList.classList.add("links");
-
+                    
+                    groupItems?.forEach(link => createLink(link,index,null,groupList));
                     title.innerHTML = groupTitle;
-                    groupItems.replaceChildren(...newChildren);
                     
                     group.appendChild(title);
                     group.appendChild(groupList);
