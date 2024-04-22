@@ -844,7 +844,7 @@
                     title.classList.add("link-group-title");
                     groupList.classList.add("links");
                     
-                    groupItems?.forEach(link => createLink(link,index,null,groupList));
+                    groupItems?.forEach((link,index) => createLink(link,index,null,groupList));
                     title.innerHTML = groupTitle;
                     
                     group.appendChild(title);
