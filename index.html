@@ -845,7 +845,7 @@
                     groupList.classList.add("links");
                     
                     groupItems?.forEach((link,index) => createLink(link,index,null,groupList));
-                    title.innerHTML = `Category: ${groupTitle}`;
+                    title.innerHTML = `<span style="opacity:0.7;"><small>Category:</small></span> ${groupTitle}`;
                     
                     group.appendChild(title);
                     group.appendChild(groupList);
