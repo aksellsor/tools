@@ -181,7 +181,7 @@
             width: 100%;
         }
 
-        #links {
+        #links, .links {
             margin-left: -6px;
             display: flex;
             flex-wrap: wrap;
@@ -694,6 +694,7 @@
                 md</a>
         </div>
         <div id="links" style="margin-bottom: 1rem"></div>
+        <div id="grouped-links" style="margin-bottom: 1rem"></div>
         <div id="markdown"></div>
     </div>
     </script>
@@ -770,6 +771,7 @@
         let allUrls = [];
         let milliseconds = new Date().getTime();
         let links = document.querySelector('#links');
+        let allGroups = document.querySelector('#grouped-links');
         let cmdkLinks = document.querySelector('#cmdk-links');
         function csvJSON(csv) {
             var lines = csv.split('\n');
@@ -822,7 +824,24 @@
                 }
             });
             if (done) {
-                console.log(categories);
+                Object.entries(categories)?.forEach(keyVal => {
+                    let groupTitle = keyVal[0];
+                    let groupItems = keyVal[1];
+                    
+                    let group = document.createElement("div");
+                    let title = document.createElement("p");
+                    let groupList = document.createElement("div");
+                    group.classList.add("link-group");
+                    title.classList.add("link-group-title");
+                    groupItems.classList.add("links");
+
+                    title.innerHTML = groupTitle;
+                    groupItems.replaceChildren(...newChildren);
+                    
+                    group.appendChild(title);
+                    group.appendChild(groupList);
+                    allGroups.appendChild(group);
+                });
                 links.replaceChildren(...newChildren);
             }
         };
