@@ -1,7 +1,7 @@
 ***
 ### Internal Tools
 * [Aksell QR-code generator](https://aksell.dev/qr "Aksell QR-code generator") - Customizable and downloadable svg qr code generator
-* [Aksell URL-shortener](https://aksellerator.no/ "Aksell URL-shortener") - Limited to Aksell network and @aksell emails
+* [Aksell URL-shortener](https://create.aksellerator.no/ "Aksell URL-shortener") - Limited to Aksell network and @aksell emails
 
 ***
 ### AI Tools
