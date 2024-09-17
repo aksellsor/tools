@@ -15,18 +15,9 @@
 * [Playground](https://playground.com/ "Playground") - Like Miro, but with AI tools
 
 ***
-### Recommended React packages
-* [React Responsive](https://contra.io/react-responsive/ "React Responsive") - Media Query wrapper for React
-
-***
-### Tech to learn
-* [ ] [GSAP](https://gsap.com/ "Gsap website")
-* [ ] [LazySizes](https://afarkas.github.io/lazysizes/index.html "LazySizes docs")
-
-***
 ### Code to know
 
-## Add Aksell favicon for small internal projects:
+## Use @property of typed variables in CSS
 ```css
 /*
   We don't know the type of the variables 🤔
