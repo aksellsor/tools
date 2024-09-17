@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- FAVICONS -->
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://aksellsor.github.io/global/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://aksellsor.github.io/global/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://aksellsor.github.io/global/favicons" />
+    <link rel="manifest" href="https://aksellsor.github.io/global/favicons/site.webmanifest" />
+    <link rel="mask-icon" href="https://aksellsor.github.io/global/favicons/safari-pinned-tab.svg"
+        color="#00c458" />
+    <!-- Primary Meta Tags -->
+    <title>Aksell.dev</title>
+    <meta name="title" content="Aksell Tools" />
+    <meta name="description" content="Useful tools from the Aksell Dev team" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Aksell Tools" />
+    <meta property="og:description" content="Useful tools from the Aksell Dev team" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/aksellsor/tools/main/og-image.jpg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Aksell Tools" />
+    <meta property="twitter:description" content="Useful tools from the Aksell Dev team" />
+    <meta property="twitter:image" content="https://raw.githubusercontent.com/aksellsor/tools/main/og-image.jpg" />
+
+    <!-- Meta Tags Generated with https://metatags.io -->
+    <style>
+        @media (hover: hover) {
+            body {
+                overscroll-behavior: none;
+                touch-action: pan-down;
+            }
+        }
+
+        body.noscroll {
+            height: 100vh;
+            width: 100vw;
+            touch-action: none;
+            -webkit-overflow-scrolling: none;
+            overflow: hidden;
+            overscroll-behavior: none;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+                sans-serif;
+
+            background-color: #212121;
+            background: linear-gradient(57deg,
+                    #353334 0%,
+                    rgba(0, 0, 0, 1) 88%);
+            color: #fff;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 3rem;
+
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            background-image: var(--bg-img);
+            inset: 0;
+            opacity: 0.3;
+            background-repeat: repeat;
+            background-size: cover;
+            filter: blur(15px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+
+        /* body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            opacity: 0.2;
+            background-repeat: repeat;
+            background-size: cover;
+            pointer-events: none;
+            z-index: -1;
+            background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20preserveAspectRatio%3D%22none%22%3E%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%2210.01%25%22%20fill%3D%22%23565559%22%20%2F%3E%3C%2Fsvg%3E);
+            background-size: 10px;
+            background-position: center;
+            background-repeat: repeat;
+        } */
+
+        hr {
+            border-color: #585858;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        html {
+            scrollbar-face-color: #646464;
+            scrollbar-base-color: #646464;
+            scrollbar-3dlight-color: #646464;
+            scrollbar-highlight-color: #646464;
+            scrollbar-track-color: #000;
+            scrollbar-arrow-color: #000;
+            scrollbar-shadow-color: #646464;
+            scrollbar-dark-shadow-color: #646464;
+            font-size: 16px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 3px;
+        }
+
+        ::-webkit-scrollbar-button {
+            background-color: #666;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #646464;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            height: 50px;
+            background-color: #666;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background-color: #646464;
+        }
+
+        ::-webkit-resizer {
+            background-color: #666;
+        }
+
+
+        #markdown,
+        .container {
+            padding-top: 50px;
+        }
+
+        @media (max-width: 800px) {
+            body {
+                padding: 1.25rem;
+            }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .img {
+            width: 100%;
+        }
+
+        #links, .links {
+            display: flex;
+            flex-wrap: wrap;
+            align-items:center;
+        }
+        .link-group {
+            border-top:1px solid rgba(150,150,150,0.3);
+            padding-top:.25rem;
+            margin-top:.25rem;
+            padding-left:180px;
+        }
+        .link-group-title {
+            margin-top:0.5rem;
+            width:100%;
+            margin-left: -180px;
+            max-width: 180px;
+        }
+        .labels {
+            display:grid;
+            grid-template-columns: 180px 1fr;
+        }
+        @media(max-width: 800px) {
+            .labels {
+                display:none;
+            }
+            .link-group-title {
+                width:max-content;
+                max-width:unset;
+                margin-right:2rem;
+                margin-left:0;
+            }
+            .link-group {
+                padding-left:0px;
+            }
+        }
+        .item-link {
+            position: relative;
+            width: max-content;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+        }
+
+        .item-link::before {
+            content: '';
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% - 0.5rem);
+            height: calc(100% - 0.5rem);
+            background-color: rgba(150, 150, 150, 0.3);
+
+            /* box-shadow: inset 20px 20px 60px #111111,
+                inset -20px -20px 60px #232323; */
+            z-index: -1;
+            border-radius: 0.5rem;
+            display: block;
+        }
+
+        .item-link:hover {
+            text-decoration: underline;
+        }
+
+        .item-link:focus {
+            outline: none;
+        }
+
+        .item-link:hover::before,
+        .item-link:focus::before {
+            background-color: #19171c;
+            outline: 1px solid #00e869;
+        }
+
+        #edit-links {
+            margin-left: -6px;
+        }
+
+        @media (max-width: 800px) {
+            .top-ui-link:not(.top-ui-link--search)::before {
+                content: "✎";
+            }
+
+            .top-ui-link span {
+                display: none;
+            }
+        }
+
+        .top-ui-link {
+            text-decoration: none;
+            color: #ccc;
+            display: inline-block;
+            padding: 0.5rem;
+        }
+
+        .top-ui-link:hover {
+            text-decoration: underline;
+        }
+
+        .top-ui-link:focus {
+            background-color: #19171c;
+            outline: 1px solid #00e869;
+            border-radius: 0.25rem;
+        }
+
+        #top-ui {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-ui-link--search {
+            outline: 1.5px solid rgba(150, 150, 150, 0.5);
+            border-radius: 50rem;
+            padding: 0.4rem 1rem;
+            color: rgba(150, 150, 150, 0.656);
+            margin-right: auto;
+            margin-left: 1rem;
+            line-height: 1;
+            align-items: center;
+            display: inline-flex;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            user-select: none;
+        }
+
+        @media (min-width: 800px) and (hover: hover) {
+            .top-ui-link--search::after {
+                content: 'CMD+K';
+                font-weight: bold;
+            }
+        }
+
+        pre {
+            max-width: 100%;
+            overflow-x: auto;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+
+            box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.1);
+            border-radius: .25rem;
+        }
+    </style>
+    <style>
+        /* CMDK */
+
+        #cmdk {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+        }
+
+        #cmdk.open {
+            display: block;
+        }
+
+        #cmdk__inner {
+            inset: 0;
+            position: fixed;
+            width: 100%;
+            margin: auto;
+            max-width: min(80vw, 650px);
+            max-height: min(50vh, 300px);
+            /* padding: 1rem; */
+            z-index: 99;
+            height: 100%;
+            border-radius: 1rem;
+            /* 
+            background-color: #191616;
+            outline: 1px solid #494949; */
+
+            backdrop-filter: blur(10px) saturate(200%);
+            -webkit-backdrop-filter: blur(10px) saturate(200%);
+            background-color: rgba(0, 0, 0, 0.47);
+            border-radius: 12px;
+            border: 1px solid rgba(209, 213, 219, 0.3);
+        }
+
+        #cmdk::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            z-index: -1;
+            display: block;
+        }
+
+        #cmdk-links {
+            overflow-y: auto;
+            margin-right: 1rem;
+            margin-top: 2rem;
+            height: calc(100% - 2rem);
+            overscroll-behavior: contain;
+        }
+
+        .cmdk-link {
+          display: grid;
+          grid-template-columns: 30% 1fr auto;
+          gap:1rem;
+            width: 100%;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            text-underline-position: under;
+            text-decoration-thickness: 1px;
+            text-decoration-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .cmdk-link .symbol {
+            color: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+        }
+
+        .cmdk-link--active .symbol {
+            opacity: 1;
+        }
+
+        .cmdk-link--active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .cmdk-link h {
+            color: #00e869;
+        }
+
+        .cmdk-link:first-of-type {
+            padding-top: 1.5rem;
+            margin-top: -1rem;
+        }
+
+        .cmdk-error {
+            color: #ff5555;
+        }
+
+        .search-field {
+            --input-text-color: #fff;
+            --input-placeholder-color: rgba(255, 255, 255, 0.6);
+            --input-bg-color: rgb(43, 43, 43);
+            --focus-input-bg-color: #00e8681b;
+            --text-color: #949faa;
+            --active-color: #00e869;
+            font-size: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .cmdk__top-row {
+            margin-top: -55px;
+            margin-bottom: 1rem;
+            /* transform: translateY(calc((100% + 1rem) * -1)); */
+        }
+
+        /* a fancy bg for showing background and border when focus. */
+        .search-field__bg {
+            position: absolute;
+            width: 100%;
+            inset: 0;
+            background: var(--input-bg-color);
+            outline: 1px solid #494949;
+            border-radius: 50rem;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+
+        /* label styling */
+        .search-field {
+            width: 100%;
+            padding: 0.8em;
+            height: 40px;
+            padding-inline: var(--inline-padding-of-input);
+            display: flex;
+            align-items: center;
+        }
+
+        .search-icon,
+        .search-field__close-btn {
+            position: absolute;
+        }
+
+        /* styling search-icon */
+        .search-icon {
+            fill: var(--text-color);
+            left: var(--inline-padding-of-input);
+            margin-left: 1rem;
+            width: 17px;
+            display: block;
+        }
+
+        .search-field__input:focus~.search-icon {
+            fill: var(--active-color);
+        }
+
+        /* svg -- size */
+        .search-field svg {
+            width: 17px;
+            display: block;
+        }
+
+        /* styling of close button */
+        .search-field__close-btn {
+            border: none;
+            right: var(--inline-padding-of-input);
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            padding: 0.1em;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--active-color);
+            opacity: 0;
+            visibility: hidden;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 1rem;
+        }
+
+        /* styling of input */
+        .search-field__input {
+            color: var(--input-text-color);
+            width: 100%;
+            padding-left: 3rem;
+            background: none;
+            border: none;
+            font-size: 1em;
+        }
+
+        ::-moz-selection {
+            color: rgb(0, 0, 0);
+            background: #00e869;
+        }
+
+        ::selection {
+            color: rgb(0, 0, 0);
+            background: #00e869;
+        }
+
+        .search-field__input::placeholder {
+            color: var(--input-placeholder-color);
+        }
+
+        .search-field__input:focus {
+            outline: none;
+        }
+        .url {
+        }
+
+        /* input background change in focus */
+        .search-field__input:focus~.search-field__bg {
+            border: 1px solid var(--active-color);
+            background: var(--focus-input-bg-color);
+        }
+
+        /* search icon color change in focus */
+        .search-field__input:focus~.search {
+            fill: var(--active-color);
+        }
+
+        /* showing close button when typing */
+        .search-field__input:valid~.search-field__close-btn {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
+            -webkit-transition-delay: 9999s;
+        }
+    </style>
+    <style>
+        /* Dracula Theme v1.2.5
+ *
+ * https://github.com/dracula/highlightjs
+ *
+ * Copyright 2016-present, All rights reserved
+ *
+ * Code licensed under the MIT license
+ *
+ * @author Denis Ciccale <dciccale@gmail.com>
+ * @author Zeno Rocha <hi@zenorocha.com>
+ */
+        /* code::before {
+            content: attr(class);
+            margin-left: -10ch;
+            margin-top: -0.5rem;
+            display: block;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #a7a7a7;
+            margin-bottom: 1rem;
+        } */
+
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: 0.5em;
+            background: #282a36;
+        }
+
+        .hljs-built_in,
+        .hljs-selector-tag,
+        .hljs-section,
+        .hljs-link {
+            color: #8be9fd;
+        }
+
+        .hljs-keyword {
+            color: #ff79c6;
+        }
+
+        .hljs,
+        .hljs-subst {
+            color: #f8f8f2;
+        }
+
+        .hljs-title,
+        .hljs-attr,
+        .hljs-meta-keyword {
+            font-style: italic;
+            color: #50fa7b;
+        }
+
+        .hljs-string,
+        .hljs-meta,
+        .hljs-name,
+        .hljs-type,
+        .hljs-symbol,
+        .hljs-bullet,
+        .hljs-addition,
+        .hljs-variable,
+        .hljs-template-tag,
+        .hljs-template-variable {
+            color: #f1fa8c;
+        }
+
+        .hljs-comment,
+        .hljs-quote,
+        .hljs-deletion {
+            color: #808080;
+        }
+
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-literal,
+        .hljs-title,
+        .hljs-section,
+        .hljs-doctag,
+        .hljs-type,
+        .hljs-name,
+        .hljs-strong {
+            font-weight: bold;
+        }
+
+        .hljs-literal,
+        .hljs-number {
+            color: #bd93f9;
+        }
+
+        .hljs-emphasis {
+            font-style: italic;
+        }
+    </style>
+    <style>
+        body {
+            min-height: 101vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fadein">
+    </div>
+    <div class="container">
+        <div id="cmdk">
+            <div id="cmdk__inner">
+                <form class="cmdk__top-row" id="search-form">
+                    <label for="search" class="search-field">
+                        <input class="search-field__input" type="text" placeholder="Search" id="search-input" />
+                        <div class="search-field__bg"></div>
+                        <svg viewBox="0 0 24 24" aria-hidden="true" class="search-icon"
+                            class="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr">
+                            <g>
+                                <path
+                                    d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z">
+                                </path>
+                            </g>
+                        </svg>
+                        <button class="search-field__close-btn" type="reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </label>
+                </form>
+                <div id="cmdk-links"></div>
+            </div>
+        </div>
+        <div id="top-ui">
+            <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="61.703"
+                height="28.047" viewBox="0 0 61.703 28.047">
+                <g id="Group_88159" data-name="Group 88159" transform="translate(-608.5 -2468.587)">
+                    <rect id="Rectangle_65" data-name="Rectangle 65" width="28.047" height="28.047"
+                        transform="translate(608.5 2468.587)" fill="#00e86a"></rect>
+                    <rect id="Rectangle_66" data-name="Rectangle 66" width="17.95" height="28.047"
+                        transform="translate(639.913 2468.587)" fill="#00e86a"></rect>
+                    <rect id="Rectangle_67" data-name="Rectangle 67" width="8.975" height="28.047"
+                        transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
+                </g>
+            </svg>
+            <div href="https://github.com/aksellsor/tools/edit/main/links.csv" class="top-ui-link top-ui-link--search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 27 27.007">
+                    <path id="Icon_ionic-ios-search" data-name="Icon ionic-ios-search"
+                        d="M31.184,29.545l-7.509-7.58a10.7,10.7,0,1,0-1.624,1.645l7.46,7.53a1.156,1.156,0,0,0,1.631.042A1.163,1.163,0,0,0,31.184,29.545ZM15.265,23.7a8.45,8.45,0,1,1,5.977-2.475A8.4,8.4,0,0,1,15.265,23.7Z"
+                        transform="translate(-4.5 -4.493)" fill="currentColor" />
+                </svg>
+            </div>
+            <a href="https://github.com/new?template_name=boilerplate&template_owner=aksellsor" target="_blank"
+                class="top-ui-link"><span>Create</span>
+                new Aksell tool</a>
+            <a href="https://github.com/aksellsor/tools/edit/main/links.csv" target="_blank"
+                class="top-ui-link"><span>Edit</span>
+                links</a>
+            <a href="https://github.com/aksellsor/tools/edit/main/index.html" target="_blank"
+                class="top-ui-link"><span>Edit</span>
+                html</a>
+            <a href="https://github.com/aksellsor/tools/edit/main/readme.md" target="_blank"
+                class="top-ui-link"><span>Edit</span>
+                md</a>
+        </div>
+        <div id="links" style="margin-bottom: 1rem"></div>
+        <div class="labels" style="border:none;">
+            <span style="opacity:0.7;"><small>Category:</small></span>
+            <span style="opacity:0.7;"><small>Links:</small></span>
+        </div>
+        <div id="grouped-links"></div>
+        <div id="markdown"></div>
+    </div>
+    </script>
+    <!-- GET CONTENT -->
+    <script>
+        document.querySelector('#search-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+        });
+        let cmdk = document.querySelector('#cmdk');
+        let cmdkInner = document.querySelector('#cmdk__inner');
+        let searchFieldInput = document.querySelector('.search-field__input');
+        var openCMDK = function () {
+            cmdk.classList.add('open');
+            document.body.classList.add("noscroll");
+            searchFieldInput?.focus();
+        };
+        var closeCMDK = function () {
+            cmdk.classList.remove('open');
+            document.body.classList.remove("noscroll");
+        };
+
+        /* OPEN ON BTN CLICK */
+        let searchBtn = document.querySelector('.top-ui-link--search');
+        searchBtn.addEventListener('click', () => {
+            openCMDK();
+        });
+
+        const delta = 6;
+        let startX;
+        let startY;
+        /* DISMISS ON CLICK OUTSIDE */
+        cmdk.addEventListener('mousedown', function (event) {
+            startX = event.pageX;
+            startY = event.pageY;
+        });
+        cmdk.addEventListener('mouseup', function (e) {
+            const diffX = Math.abs(e.pageX - startX);
+            const diffY = Math.abs(e.pageY - startY);
+
+            if (diffX < delta && diffY < delta) {
+                const isClickedInsideDiv = e.composedPath().includes(cmdkInner);
+
+                if (isClickedInsideDiv) {
+                    // alert('clicked inside of div');
+                } else {
+                    closeCMDK();
+                    // alert('clicked outside of div');
+                }
+            }
+        });
+        const keyDown = (e) => {
+            /* DISMISS ON ESCAPE */
+            if (e.key === 'Escape') {
+                closeCMDK();
+            }
+            /* OPEN USING CMD+K */
+            if (e.metaKey || e.ctrlKey) {
+                switch (e.code) {
+                    case 'KeyK':
+                        e.preventDefault();
+                        openCMDK();
+                        break;
+                }
+            }
+            if (e.altKey && e.shiftKey) {
+                switch (e.code) {
+                    case 'KeyG':
+                        window.open('https://github.com/aksellsor/tools');
+                        break;
+                }
+            }
+        };
+        document.body.addEventListener('keydown', keyDown);
+        let allUrls = [];
+        let milliseconds = new Date().getTime();
+        let links = document.querySelector('#links');
+        let allGroups = document.querySelector('#grouped-links');
+        let cmdkLinks = document.querySelector('#cmdk-links');
+        function csvJSON(csv) {
+            var lines = csv.split('\n');
+
+            var result = [];
+
+            // NOTE: If your columns contain commas in their values, you'll need
+            // to deal with those before doing the next step
+            // (you might convert them to &&& or something, then covert them back later)
+            // jsfiddle showing the issue https://jsfiddle.net/
+            var headers = lines[0].split(',');
+
+            for (var i = 1; i < lines.length; i++) {
+                var obj = {};
+                var currentline = lines[i].split(',');
+
+                for (var j = 0; j < headers.length; j++) {
+                    obj[headers[j]] = currentline[j];
+                }
+
+                result.push(obj);
+            }
+
+            //return result; //JavaScript object
+            return JSON.stringify(result); //JSON
+        }
+        const createLink = (link,index,arrayToPushTo,parentToAppendTo) => {
+                let html = `<span class="url">${link.label}</span>`;
+                let item = document.createElement('a');
+                
+                item.href = link.url;
+                item.target = '_blank';
+                item.classList = 'item-link';
+                item.innerHTML = html;
+                if(Array.isArray(arrayToPushTo)){
+                    arrayToPushTo.push(item);
+                }
+                if(parentToAppendTo) {
+                    parentToAppendTo?.appendChild(item);
+                }
+        }
+        const createItemLinks = (urls) => {
+            let newChildren = [];
+            let done = false;
+            let categories = {};
+            urls?.forEach((link, index) => {
+                createLink(link,index,newChildren);
+                let category = link.category;
+                let validCategory = category?.replace(/ /g,""); // Remove spaces
+                if(!Array.isArray(categories[validCategory])){
+                    categories[validCategory] = [];
+                    categories[validCategory].push(link);
+                }
+                else {
+                    categories[validCategory].push(link);
+                }
+                if (index === urls.length - 1) {
+                    done = true;
+                }
+            });
+            if (done) {
+                Object.entries(categories)?.forEach(keyVal => {
+                    let groupTitle = keyVal[0];
+                    let groupItems = keyVal[1];
+                    
+                    let group = document.createElement("div");
+                    let title = document.createElement("p");
+                    group.classList.add("link-group");
+                    title.classList.add("link-group-title");
+                    group.classList.add("links");
+                    
+                    title.innerHTML = `${groupTitle}`;
+                    group.appendChild(title);
+                    groupItems?.forEach((link,index) => createLink(link,index,null,group));
+                    allGroups.appendChild(group);
+                });
+                // links.replaceChildren(...newChildren);
+            }
+        };
+        const createCMDKLinks = (urls, keyword) => {
+
+            let newChildren = [];
+            let done = false;
+
+            urls?.sort((a,b,) => {return a.category?.localeCompare(b?.category)})?.forEach((link, index) => {
+                let html = `<span style="opacity:0.7;text-transform:uppercase;"><small>${link.category}</small></span><span class="url">${link.label
+                    ?.toLowerCase()
+                    ?.replace(
+                        keyword,
+                        `<h>${keyword}</h>`
+                    )}</span><span class="symbol">↵</span>`;
+                let item = document.createElement('a');
+                item.href = link.url;
+                item.target = '_blank';
+                item.classList = 'cmdk-link';
+                item.innerHTML = html;
+                newChildren.push(item);
+                if (index === urls.length - 1) {
+                    done = true;
+                }
+            });
+            if (done) {
+                cmdkLinks.replaceChildren(...newChildren);
+            }
+        };
+        fetch(
+            `https://raw.githubusercontent.com/aksellsor/tools/main/links.csv?token=${milliseconds}`
+        )
+            .then((r) => r.text())
+            .then((csv) => {
+                let json = csvJSON(csv);
+                let parsed = JSON.parse(json)?.filter((item) => item.url?.length > 0);
+                allUrls = parsed;
+                createItemLinks(parsed);
+                createCMDKLinks(parsed);
+            });
+        // fetch(`https://raw.githubusercontent.com/aksellsor/tools/main/links.json?token=${milliseconds}`).then(r => r.json()).then(urls => {
+        //     console.log('urls', urls);
+        //     allUrls = urls;
+        //     createItemLinks(urls);
+        //     createCMDKLinks(urls);
+        // });
+
+        /* SEARCH */
+        let searchFocused = null;
+        let searchInput = document.querySelector('#search-input');
+        let activeEl = null;
+        let activeIndex = -1;
+        let filteredItems = null;
+        searchInput.addEventListener('focus', (e) => {
+            let inFocus = document.activeElement === e.target;
+            searchFocused = inFocus;
+        });
+        const scrollToBeVisible = function (ele, container) {
+            const eleTop = ele.offsetTop;
+            const eleBottom = eleTop + ele.clientHeight;
+
+            const containerTop = container.scrollTop;
+            const containerBottom = containerTop + container.clientHeight;
+
+            if (eleTop < containerTop) {
+                // Scroll to the top of container
+                container.scrollTop -= containerTop - eleTop;
+            } else if (eleBottom > containerBottom) {
+                // Scroll to the bottom of container
+                container.scrollTop += eleBottom - containerBottom;
+            }
+        };
+
+        searchInput.addEventListener('keydown', (e) => {
+            let key = e.key;
+            // "ArrowRight", "ArrowLeft", "ArrowUp", or "ArrowDown"
+            if (searchFocused) {
+                if (key === 'ArrowUp') {
+                    if (activeIndex > 0) {
+                        activeIndex -= 1;
+                    } else {
+                        activeIndex = (filteredItems?.length || allUrls?.length) - 1;
+                    }
+                }
+                if (key === 'ArrowDown') {
+                    // alert("going down");
+                    if (activeIndex < (filteredItems?.length || allUrls?.length) - 1) {
+                        activeIndex += 1;
+                    } else {
+                        activeIndex = 0;
+                    }
+                }
+                activeEl = null;
+                document.querySelectorAll('.cmdk-link').forEach((el, index) => {
+                    if (index === activeIndex) {
+                        el.classList.add('cmdk-link--active');
+                        activeEl = el;
+                    } else {
+                        el.classList.remove('cmdk-link--active');
+                    }
+                });
+            }
+
+            if (activeEl) {
+                scrollToBeVisible(activeEl, cmdkLinks);
+                // activeEl.scrollIntoView();
+                if (key === 'Enter') {
+                    let href = activeEl?.getAttribute('href');
+                    // console.log(href);
+                    window.open(href);
+                }
+            }
+        });
+        searchInput.addEventListener('input', (e) => {
+            let searchVal = e.target.value?.toLowerCase();
+            if (searchVal?.length > 0) {
+                let filtered = allUrls.filter((urlObj) =>
+                    JSON.stringify(urlObj)?.toLowerCase().includes(searchVal)
+                );
+                if (filtered?.length === 0) {
+                    console.log('no results');
+                    cmdkLinks.innerHTML = `<div class="cmdk-error"><center><p>0 results for <b><i> ${searchVal}</i></b></p></center></div>`;
+                } else {
+                    createCMDKLinks(filtered, searchVal);
+                }
+                filteredItems = filtered;
+            } else {
+                filteredItems = null;
+                createCMDKLinks(allUrls);
+            }
+        });
+    </script>
+    <!-- PASTE IMAGE BG -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('paste', function (evt) {
+                const clipboardItems = evt.clipboardData.items;
+                const items = [].slice.call(clipboardItems).filter(function (item) {
+                    // Filter the image items only
+                    return item.type.indexOf('image') !== -1;
+                });
+                if (items.length === 0) {
+                    return;
+                }
+
+                const item = items[0];
+                const blob = item.getAsFile();
+
+                // const imageEle = document.getElementById('preview');
+                // imageEle.src = URL.createObjectURL(blob);
+                let root = document.documentElement;
+                root.style.setProperty("--bg-img", `url("${URL.createObjectURL(blob)}")`);
+
+            });
+        });
+    </script>
+    <!-- MARKDOWN -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.2/dist/markdown-it.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        fetch(
+            `https://raw.githubusercontent.com/aksellsor/tools/main/readme.md?token=${milliseconds}`
+        )
+            .then((r) => r.text())
+            .then((text) => {
+                const markdown = document.querySelector('#markdown');
+                var md = window.markdownit({
+                    highlight: function (str, lang) {
+                        if (lang && hljs.getLanguage(lang)) {
+                            try {
+                                return hljs.highlight(str, { showLanguageLabel: true, language: lang }).value;
+                            } catch (__) { }
+                        }
+
+                        return ''; // use external default escaping
+                    },
+                });
+                // var md = window.markdownit();
+                var result = md.render(text);
+                markdown.innerHTML = result;
+                if (markdown.innerHTML?.length > 0) {
+
+                    let liTags = document.querySelectorAll('li');
+                    let boxes = Array.from(liTags).filter(el => el.textContent.includes('[ ]') || el.textContent.includes('[x]'));
+                    boxes.forEach(el => {
+                        el.style.listStyle = "none";
+                        el.style.marginLeft = "-40px";
+                        el.innerHTML = el.innerHTML.replace('[ ]', "<input type='checkbox' />").replace('[x]', "<input type='checkbox' checked='true'/>");
+                    });
+                    //     document.querySelectorAll("code").forEach(el => {
+                    //         let lang = el.classList.value.split("-")[1];
+                    //         console.log(lang);
+                    //     });
+                }
+            });
+    </script>
+</body>
+
+</html>
