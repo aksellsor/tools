@@ -221,16 +221,15 @@
                 const container = document.getElementById('codepen-container');
 
                 parsedData.forEach(item => {
-                    const card = document.createElement('div');
-                    const title = document.createElement('h2');
-                    title.textContent = item['Title'];
-
-                    const link = document.createElement('p');
-                    link.innerHTML = `<a href="${item['Codepen Link']}">${item['Title']}</a>`;
-
-                    card.appendChild(title);
-                    card.appendChild(link);
-                    container.appendChild(card);
+                 container.innerHTML+= `<p
+                    class="codepen"
+                    data-height="300"
+                    data-theme-id="dark"
+                    data-default-tab="result"
+                    data-slug-hash="gONeVjV"
+                    data-pen-title="Vanilla javaScript: Text Reveal Effect On Scroll" data-editable="true" data-user="lasse-dollis-spilling"
+                    style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+                    ></p>`
                 });
             })
             .catch(error => console.error('Error fetching the CSV file:', error));
