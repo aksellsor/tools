@@ -27,6 +27,41 @@
 ### Code to know
 
 ## Add Aksell favicon for small internal projects:
+```css
+/*
+  We don't know the type of the variables 🤔
+  Valid or invalid? We don't know! 🫣
+  Hard to debug & the browser won't help you 😖
+*/
+:root {
+  --color: #586de7;
+  --size: 20px;
+  --cols: 12;
+}
+
+/*
+  Instead do this:
+  Typed CSS variables! 🤩
+  Easy to debug and the browser will help you 😃
+*/
+@property --color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #586de7; 
+}
+@property --size {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 20px; 
+}
+@property --cols {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 12; 
+}
+```
+
+## Add Aksell favicon for small internal projects:
 ```html
 <!-- FAVICONS -->
 <link rel="apple-touch-icon" sizes="180x180"
