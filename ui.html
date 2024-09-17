@@ -180,153 +180,18 @@
         .img {
             width: 100%;
         }
-
-        #links, .links {
-            display: flex;
-            flex-wrap: wrap;
-            align-items:center;
-        }
-        .link-group {
-            border-top:1px solid rgba(150,150,150,0.3);
-            padding-top:.25rem;
-            margin-top:.25rem;
-            padding-left:180px;
-        }
-        .link-group-title {
-            margin-top:0.5rem;
-            width:100%;
-            margin-left: -180px;
-            max-width: 180px;
-        }
-        .labels {
-            display:grid;
-            grid-template-columns: 180px 1fr;
-        }
-        @media(max-width: 800px) {
-            .labels {
-                display:none;
-            }
-            .link-group-title {
-                width:max-content;
-                max-width:unset;
-                margin-right:2rem;
-                margin-left:0;
-            }
-            .link-group {
-                padding-left:0px;
-            }
-        }
-        .item-link {
-            position: relative;
-            width: max-content;
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-        }
-
-        .item-link::before {
-            content: '';
-            position: absolute;
-
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: calc(100% - 0.5rem);
-            height: calc(100% - 0.5rem);
-            background-color: rgba(150, 150, 150, 0.3);
-
-            /* box-shadow: inset 20px 20px 60px #111111,
-                inset -20px -20px 60px #232323; */
-            z-index: -1;
-            border-radius: 0.5rem;
-            display: block;
-        }
-
-        .item-link:hover {
-            text-decoration: underline;
-        }
-
-        .item-link:focus {
-            outline: none;
-        }
-
-        .item-link:hover::before,
-        .item-link:focus::before {
-            background-color: #19171c;
-            outline: 1px solid #00e869;
-        }
-
-        #edit-links {
-            margin-left: -6px;
-        }
-
-        @media (max-width: 800px) {
-            .top-ui-link:not(.top-ui-link--search)::before {
-                content: "✎";
-            }
-
-            .top-ui-link span {
-                display: none;
-            }
-        }
-
-        .top-ui-link {
-            text-decoration: none;
-            color: #ccc;
-            display: inline-block;
-            padding: 0.5rem;
-        }
-
-        .top-ui-link:hover {
-            text-decoration: underline;
-        }
-
-        .top-ui-link:focus {
-            background-color: #19171c;
-            outline: 1px solid #00e869;
-            border-radius: 0.25rem;
-        }
-
-        #top-ui {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .top-ui-link--search {
-            outline: 1.5px solid rgba(150, 150, 150, 0.5);
-            border-radius: 50rem;
-            padding: 0.4rem 1rem;
-            color: rgba(150, 150, 150, 0.656);
-            margin-right: auto;
-            margin-left: 1rem;
-            line-height: 1;
-            align-items: center;
-            display: inline-flex;
-            gap: 0.5rem;
-            font-size: 0.8rem;
-            user-select: none;
-        }
-
-        @media (min-width: 800px) and (hover: hover) {
-            .top-ui-link--search::after {
-                content: 'CMD+K';
-                font-weight: bold;
-            }
-        }
-
-        pre {
-            max-width: 100%;
-            overflow-x: auto;
-            padding: 1rem;
-            background-color: rgba(255, 255, 255, 0.05);
-
-            box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.1);
-            border-radius: .25rem;
-        }
     </style>
 </head>
 
 <body>
+    <div class="container">
+        <p class="codepen" data-height="406.8143310546875" data-theme-id="dark" data-default-tab="css,result" data-slug-hash="NWZZjBr" data-pen-title="Untitled" data-editable="true" data-user="lasse-dollis-spilling" style="height: 406.8143310546875px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/lasse-dollis-spilling/pen/NWZZjBr">
+  Untitled</a> by Lasse Dollis Spilling (<a href="https://codepen.io/lasse-dollis-spilling">@lasse-dollis-spilling</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    </div>
 </body>
 
 </html>
