@@ -180,6 +180,64 @@
         .img {
             width: 100%;
         }
+        #edit-links {
+            margin-left: -6px;
+        }
+
+        @media (max-width: 800px) {
+            .top-ui-link:not(.top-ui-link--search)::before {
+                content: "✎";
+            }
+
+            .top-ui-link span {
+                display: none;
+            }
+        }
+
+        .top-ui-link {
+            text-decoration: none;
+            color: #ccc;
+            display: inline-block;
+            padding: 0.5rem;
+        }
+
+        .top-ui-link:hover {
+            text-decoration: underline;
+        }
+
+        .top-ui-link:focus {
+            background-color: #19171c;
+            outline: 1px solid #00e869;
+            border-radius: 0.25rem;
+        }
+
+        #top-ui {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-ui-link--search {
+            outline: 1.5px solid rgba(150, 150, 150, 0.5);
+            border-radius: 50rem;
+            padding: 0.4rem 1rem;
+            color: rgba(150, 150, 150, 0.656);
+            margin-right: auto;
+            margin-left: 1rem;
+            line-height: 1;
+            align-items: center;
+            display: inline-flex;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            user-select: none;
+        }
+
+        @media (min-width: 800px) and (hover: hover) {
+            .top-ui-link--search::after {
+                content: 'CMD+K';
+                font-weight: bold;
+            }
+        }
     </style>
 </head>
 
