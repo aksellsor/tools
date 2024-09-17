@@ -189,26 +189,28 @@
 <hr style="margin-bottom:4rem"/>
         
     <div id="codepen-container"></div>
+<script>
+        // Function to generate random token
+        function generateRandomToken() {
+            return Math.random().toString(36).substring(2); // Generate a random alphanumeric string
+        }
 
-    <script>
-        // URL to your CSV file on GitHub
-        const csvUrl = 'https://raw.githubusercontent.com/aksellsor/tools/main/ui-pens.csv';
+        // URL to your CSV file on GitHub with random token
+        const csvUrl = `https://raw.githubusercontent.com/aksellsor/tools/main/ui-pens.csv?token=${generateRandomToken()}`;
 
         // Function to parse CSV
         function parseCSV(text) {
             const lines = text.split('\n');
             const result = [];
-            const headers = lines[0].split(',');
 
-            for (let i = 1; i < lines.length; i++) {
-                const obj = {};
+            for (let i = 0; i < lines.length; i++) {
                 const currentLine = lines[i].split(',');
-
-                headers.forEach((header, index) => {
-                    obj[header.trim()] = currentLine[index]?.trim();
-                });
-
-                result.push(obj);
+                if (currentLine.length === 2) {
+                    result.push({
+                        url: currentLine[0]?.trim(),
+                        title: currentLine[1]?.trim()
+                    });
+                }
             }
             return result;
         }
@@ -227,8 +229,8 @@
                 const container = document.getElementById('codepen-container');
 
                 parsedData.forEach(item => {
-                    const slug = getSlugFromUrl(item['Codepen Link']);
-                    const title = item['Title'];
+                    const slug = getSlugFromUrl(item.url);
+                    const title = item.title;
 
                     // Generate HTML with dynamic slug
                     let html = `<p
