@@ -187,13 +187,54 @@
     <div class="container">
         <h1>Aksell UI Components</h1>
 <hr style="margin-bottom:4rem"/>
-        <h2>Cards with shine hover effect and spillover edge light</h2>
-        <p class="codepen" data-height="406.8143310546875" data-theme-id="dark" data-default-tab="result" data-slug-hash="NWZZjBr" data-pen-title="Untitled" data-editable="true" data-user="lasse-dollis-spilling" style="height: 406.8143310546875px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"> <span>See the Pen <a href="https://codepen.io/lasse-dollis-spilling/pen/NWZZjBr"> Untitled</a> by Lasse Dollis Spilling (<a href="https://codepen.io/lasse-dollis-spilling">@lasse-dollis-spilling</a>) on <a href="https://codepen.io">CodePen</a>.</span> </p>
-        <p class="codepen" data-height="300" data-theme-id="dark" data-default-tab="result" data-slug-hash="gONeVjV" data-pen-title="Vanilla javaScript: Text Reveal Effect On Scroll" data-editable="true" data-user="lasse-dollis-spilling" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/lasse-dollis-spilling/pen/gONeVjV">
-  Vanilla javaScript: Text Reveal Effect On Scroll</a> by Lasse Dollis Spilling (<a href="https://codepen.io/lasse-dollis-spilling">@lasse-dollis-spilling</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+        
+    <div id="codepen-container"></div>
+
+    <script>
+        // URL to your CSV file on GitHub
+        const csvUrl = 'https://raw.githubusercontent.com/aksellsor/tools/main/ui-pens.csv';
+
+        // Function to parse CSV
+        function parseCSV(text) {
+            const lines = text.split('\n');
+            const result = [];
+            const headers = lines[0].split(',');
+
+            for (let i = 1; i < lines.length; i++) {
+                const obj = {};
+                const currentLine = lines[i].split(',');
+
+                headers.forEach((header, index) => {
+                    obj[header.trim()] = currentLine[index]?.trim();
+                });
+
+                result.push(obj);
+            }
+            return result;
+        }
+
+        // Fetch and display content
+        fetch(csvUrl)
+            .then(response => response.text())
+            .then(data => {
+                const parsedData = parseCSV(data);
+                const container = document.getElementById('codepen-container');
+
+                parsedData.forEach(item => {
+                    const card = document.createElement('div');
+                    const title = document.createElement('h2');
+                    title.textContent = item['Title'];
+
+                    const link = document.createElement('p');
+                    link.innerHTML = `<a href="${item['Codepen Link']}">${item['Title']}</a>`;
+
+                    card.appendChild(title);
+                    card.appendChild(link);
+                    container.appendChild(card);
+                });
+            })
+            .catch(error => console.error('Error fetching the CSV file:', error));
+    </script>
         <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
     </div>
 </body>
