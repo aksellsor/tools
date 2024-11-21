@@ -14,14 +14,14 @@
 
 ## Local date time formatting
 ```js
-	let lastUpdated = new Date(content?.updatedDate)?.toLocaleString("nb-no", {
-		year: 'numeric',
-		month: 'short',
-		day: 'numeric',
-		hour: '2-digit',
-		minute: '2-digit',
-		timeZone: 'UTC',
-	});
+let lastUpdated = new Date(content?.updatedDate)?.toLocaleString("nb-no", {
+	year: 'numeric',
+	month: 'short',
+	day: 'numeric',
+	hour: '2-digit',
+	minute: '2-digit',
+	timeZone: 'UTC',
+});
 ```
 
 ## Use @property of typed variables in CSS
