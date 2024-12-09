@@ -1,7 +1,5 @@
 name="aksell-tools"
 pages_build_output_dir="dist"
-compatibility_date = "2024-12-09"
-compatibility_flags = ["streams_enable_constructors"]
 
 [vars]
 GITHUB_REPO="https://github.com/aksellsor/tools"
