@@ -23,13 +23,13 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Aksell Tools" />
     <meta property="og:description" content="Useful tools from the Aksell Dev team" />
-    <meta property="og:image" content="https://raw.githubusercontent.com/aksellsor/tools/main/og-image.jpg" />
+    <meta property="og:image" content="./og-image.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content="Aksell Tools" />
     <meta property="twitter:description" content="Useful tools from the Aksell Dev team" />
-    <meta property="twitter:image" content="https://raw.githubusercontent.com/aksellsor/tools/main/og-image.jpg" />
+    <meta property="twitter:image" content="./og-image.jpg" />
 
     <!-- Meta Tags Generated with https://metatags.io -->
     <style>
@@ -915,7 +915,7 @@
             }
         };
         fetch(
-            `https://raw.githubusercontent.com/aksellsor/tools/main/links.csv?token=${milliseconds}`
+            `https://raw.githubusercontent.com/aksellsor/tools/main/links.csv?v=${milliseconds}`
         )
             .then((r) => r.text())
             .then((csv) => {
@@ -925,12 +925,6 @@
                 createItemLinks(parsed);
                 createCMDKLinks(parsed);
             });
-        // fetch(`https://raw.githubusercontent.com/aksellsor/tools/main/links.json?token=${milliseconds}`).then(r => r.json()).then(urls => {
-        //     console.log('urls', urls);
-        //     allUrls = urls;
-        //     createItemLinks(urls);
-        //     createCMDKLinks(urls);
-        // });
 
         /* SEARCH */
         let searchFocused = null;
@@ -1046,7 +1040,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
         fetch(
-            `https://raw.githubusercontent.com/aksellsor/tools/main/readme.md?token=${milliseconds}`
+            `https://raw.githubusercontent.com/aksellsor/tools/main/readme.md?v=${milliseconds}`
         )
             .then((r) => r.text())
             .then((text) => {
