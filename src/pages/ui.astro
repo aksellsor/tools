@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { EDIT_PENS } from "astro:env/client"
+const { env } = Astro.locals.runtime;
+const EDIT_PENS = env.EDIT_PENS;
 ---
 
 <Layout>
