@@ -1,3 +1,11 @@
+---
+
+let {
+GITHUB_REPO,CLOUDFLARE_DASH,
+title = "aksell.dev",
+description = "Useful tools from the Aksell Dev team"
+} = import.meta.env;
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,20 +19,20 @@
     <link rel="manifest" href="/favicons/site.webmanifest" />
     <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#00c458" />
     <!-- Primary Meta Tags -->
-    <title>aksell.dev</title>
-    <meta name="title" content="Aksell Tools" />
-    <meta name="description" content="Useful tools from the Aksell Dev team" />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Aksell Tools" />
-    <meta property="og:description" content="Useful tools from the Aksell Dev team" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content="/og-image.jpg" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Aksell Tools" />
-    <meta property="twitter:description" content="Useful tools from the Aksell Dev team" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content="/og-image.jpg" />
     <style is:global>
         @media (hover: hover) {
@@ -43,15 +51,24 @@
             overscroll-behavior: none;
         }
 
+        html {
+    block-size: 100%;
+}
+body {
+    min-height: 100%;
+}
+    body {
+        background: linear-gradient(57deg, #353334 0%, rgba(0, 0, 0, 1) 88%);
+        color: #fff;
+    }
+    [data-theme='light'],  [data-theme='light'] body {
+        background: linear-gradient(57deg, #d6d6d6 0%, rgb(255, 255, 255) 88%);
+        color: #000;
+    }
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
                 Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
                 sans-serif;
-
-            background-color: #212121;
-            background: linear-gradient(57deg,
-                    #353334 0%,
-                    rgba(0, 0, 0, 1) 88%);
             color: #fff;
             background-attachment: fixed;
             margin: 0;
@@ -161,6 +178,34 @@
 
 <body>
     <slot />
+    <script define:vars={{GITHUB_REPO, CLOUDFLARE_DASH}}>
+
+const keyDown = (e) => {
+            /* DISMISS ON ESCAPE */
+            if (e.key === 'Escape') {
+                closeCMDK();
+            }
+            /* OPEN USING CMD+K */
+            if (e.metaKey || e.ctrlKey) {
+                switch (e.code) {
+                    case 'KeyK':
+                        e.preventDefault();
+                        openCMDK();
+                        break;
+                }
+            }
+            if (e.altKey && e.shiftKey) {
+                switch (e.code) {
+                    case 'KeyG':
+                        window.open(GITHUB_REPO);
+                    case 'KeyC':
+                        window.open(CLOUDFLARE_DASH);
+                        break;
+                }
+            }
+        };
+        document.addEventListener('keydown', keyDown);
+    </script>
 </body>
 
 </html>

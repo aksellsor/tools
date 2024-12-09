@@ -1,53 +1,60 @@
 ---
 import Layout from "../layouts/Layout.astro";
 let {
-	GITHUB_REPO,
-	NEW_AKSELL_TOOL,
-	EDIT_LINKS,
+GITHUB_REPO,
+NEW_AKSELL_TOOL,
+EDIT_LINKS,
 EDIT_HTML,
 EDIT_MARKDOWN,
-	} = import.meta.env;
+} = import.meta.env;
 ---
 
 <Layout>
 
     <style is:inline>
-
-        #links, .links {
+        #links,
+        .links {
             display: flex;
             flex-wrap: wrap;
-            align-items:center;
+            align-items: center;
         }
+
         .link-group {
-            border-top:1px solid rgba(150,150,150,0.3);
-            padding-top:.25rem;
-            margin-top:.25rem;
-            padding-left:180px;
+            border-top: 1px solid rgba(150, 150, 150, 0.3);
+            padding-top: .25rem;
+            margin-top: .25rem;
+            padding-left: 180px;
         }
+
         .link-group-title {
-            margin-top:0.5rem;
-            width:100%;
+            margin-top: 0.5rem;
+            width: 100%;
             margin-left: -180px;
             max-width: 180px;
         }
+
         .labels {
-            display:grid;
+            display: grid;
             grid-template-columns: 180px 1fr;
         }
+
         @media(max-width: 800px) {
             .labels {
-                display:none;
+                display: none;
             }
+
             .link-group-title {
-                width:max-content;
-                max-width:unset;
-                margin-right:2rem;
-                margin-left:0;
+                width: max-content;
+                max-width: unset;
+                margin-right: 2rem;
+                margin-left: 0;
             }
+
             .link-group {
-                padding-left:0px;
+                padding-left: 0px;
             }
         }
+
         .item-link {
             position: relative;
             width: max-content;
@@ -119,7 +126,7 @@ EDIT_MARKDOWN,
         }
 
         #top-ui {
-            flex-wrap:wrap;
+            flex-wrap: wrap;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -212,9 +219,9 @@ EDIT_MARKDOWN,
         }
 
         .cmdk-link {
-          display: grid;
-          grid-template-columns: 30% 1fr auto;
-          gap:1rem;
+            display: grid;
+            grid-template-columns: 30% 1fr auto;
+            gap: 1rem;
             width: 100%;
             justify-content: space-between;
             padding: 0.5rem 1rem;
@@ -366,8 +373,8 @@ EDIT_MARKDOWN,
         .search-field__input:focus {
             outline: none;
         }
-        .url {
-        }
+
+        .url {}
 
         /* input background change in focus */
         .search-field__input:focus~.search-field__bg {
@@ -539,17 +546,13 @@ EDIT_MARKDOWN,
                         transform="translate(-4.5 -4.493)" fill="currentColor" />
                 </svg>
             </div>
-            <a href={NEW_AKSELL_TOOL} target="_blank"
-                class="top-ui-link"><span>Create</span>
+            <a href={NEW_AKSELL_TOOL} target="_blank" class="top-ui-link"><span>Create</span>
                 new Aksell tool</a>
-            <a href={EDIT_LINKS} target="_blank"
-                class="top-ui-link"><span>Edit</span>
+            <a href={EDIT_LINKS} target="_blank" class="top-ui-link"><span>Edit</span>
                 links</a>
-            <a href={EDIT_HTML} target="_blank"
-                class="top-ui-link"><span>Edit</span>
+            <a href={EDIT_HTML} target="_blank" class="top-ui-link"><span>Edit</span>
                 html</a>
-            <a href={EDIT_MARKDOWN} target="_blank"
-                class="top-ui-link"><span>Edit</span>
+            <a href={EDIT_MARKDOWN} target="_blank" class="top-ui-link"><span>Edit</span>
                 md</a>
         </div>
         <div id="links" style="margin-bottom: 1rem"></div>
@@ -562,7 +565,7 @@ EDIT_MARKDOWN,
     </div>
     </script>
     <!-- GET CONTENT -->
-    <script  is:inline define:vars={{GITHUB_REPO}}>
+    <script is:inline>
         document.querySelector('#search-form').addEventListener('submit', (e) => {
             e.preventDefault();
         });
@@ -622,13 +625,6 @@ EDIT_MARKDOWN,
                         break;
                 }
             }
-            if (e.altKey && e.shiftKey) {
-                switch (e.code) {
-                    case 'KeyG':
-                        window.open(GITHUB_REPO);
-                        break;
-                }
-            }
         };
         document.addEventListener('keydown', keyDown);
         let allUrls = [];
@@ -660,30 +656,30 @@ EDIT_MARKDOWN,
             //return result; //JavaScript object
             return JSON.stringify(result); //JSON
         }
-        const createLink = (link,index,arrayToPushTo,parentToAppendTo) => {
-                let html = `<span class="url">${link.label}</span>`;
-                let item = document.createElement('a');
-                
-                item.href = link.url;
-                item.target = '_blank';
-                item.classList = 'item-link';
-                item.innerHTML = html;
-                if(Array.isArray(arrayToPushTo)){
-                    arrayToPushTo.push(item);
-                }
-                if(parentToAppendTo) {
-                    parentToAppendTo?.appendChild(item);
-                }
+        const createLink = (link, index, arrayToPushTo, parentToAppendTo) => {
+            let html = `<span class="url">${link.label}</span>`;
+            let item = document.createElement('a');
+
+            item.href = link.url;
+            item.target = '_blank';
+            item.classList = 'item-link';
+            item.innerHTML = html;
+            if (Array.isArray(arrayToPushTo)) {
+                arrayToPushTo.push(item);
+            }
+            if (parentToAppendTo) {
+                parentToAppendTo?.appendChild(item);
+            }
         }
         const createItemLinks = (urls) => {
             let newChildren = [];
             let done = false;
             let categories = {};
             urls?.forEach((link, index) => {
-                createLink(link,index,newChildren);
+                createLink(link, index, newChildren);
                 let category = link.category;
-                let validCategory = category?.replace(/ /g,""); // Remove spaces
-                if(!Array.isArray(categories[validCategory])){
+                let validCategory = category?.replace(/ /g, ""); // Remove spaces
+                if (!Array.isArray(categories[validCategory])) {
                     categories[validCategory] = [];
                     categories[validCategory].push(link);
                 }
@@ -698,16 +694,16 @@ EDIT_MARKDOWN,
                 Object.entries(categories)?.forEach(keyVal => {
                     let groupTitle = keyVal[0];
                     let groupItems = keyVal[1];
-                    
+
                     let group = document.createElement("div");
                     let title = document.createElement("p");
                     group.classList.add("link-group");
                     title.classList.add("link-group-title");
                     group.classList.add("links");
-                    
+
                     title.innerHTML = `${groupTitle}`;
                     group.appendChild(title);
-                    groupItems?.forEach((link,index) => createLink(link,index,null,group));
+                    groupItems?.forEach((link, index) => createLink(link, index, null, group));
                     allGroups.appendChild(group);
                 });
                 // links.replaceChildren(...newChildren);
@@ -718,7 +714,7 @@ EDIT_MARKDOWN,
             let newChildren = [];
             let done = false;
 
-            urls?.sort((a,b,) => {return a.category?.localeCompare(b?.category)})?.forEach((link, index) => {
+            urls?.sort((a, b,) => { return a.category?.localeCompare(b?.category) })?.forEach((link, index) => {
                 let html = `<span style="opacity:0.7;text-transform:uppercase;"><small>${link.category}</small></span><span class="url">${link.label
                     ?.toLowerCase()
                     ?.replace(
@@ -837,7 +833,7 @@ EDIT_MARKDOWN,
         });
     </script>
     <!-- PASTE IMAGE BG -->
-    <script  is:inline>
+    <script is:inline>
         document.addEventListener('DOMContentLoaded', function () {
             document.addEventListener('paste', function (evt) {
                 const clipboardItems = evt.clipboardData.items;
@@ -861,8 +857,8 @@ EDIT_MARKDOWN,
         });
     </script>
     <!-- MARKDOWN -->
-    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.2/dist/markdown-it.min.js"  is:inline></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"  is:inline></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.2/dist/markdown-it.min.js" is:inline></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" is:inline></script>
     <script is:inline>
         let milliseconds = new Date().getTime();
         fetch(`/readme.md?v=${milliseconds}`
