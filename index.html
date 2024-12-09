@@ -915,7 +915,7 @@
             }
         };
         fetch(
-            `https://corsproxy.io/?https://raw.githubusercontent.com/aksellsor/tools/main/links.csv?v=${milliseconds}`
+            `https://partytownproxy.aksell.workers.dev/?apiurl=https://raw.githubusercontent.com/aksellsor/tools/main/links.csv&v=${milliseconds}`
         )
             .then((r) => r.text())
             .then((csv) => {
@@ -1040,7 +1040,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
         fetch(
-            `https://corsproxy.io/?https://raw.githubusercontent.com/aksellsor/tools/main/readme.md?v=${milliseconds}`
+            `https://partytownproxy.aksell.workers.dev/?apiurl=https://raw.githubusercontent.com/aksellsor/tools/main/readme.md&v=${milliseconds}`
         )
             .then((r) => r.text())
             .then((text) => {
