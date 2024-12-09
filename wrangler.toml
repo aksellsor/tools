@@ -1,5 +1,7 @@
 name="aksell-tools"
 pages_build_output_dir="dist"
+compatibility_date = "2024-12-09"
+compatibility_flags = ["streams_enable_constructors"]
 
 [vars]
 GITHUB_REPO="https://github.com/aksellsor/tools"
@@ -9,7 +11,3 @@ EDIT_HTML="https://github.com/aksellsor/tools/edit/main/index.html"
 EDIT_LINKS="https://github.com/aksellsor/tools/edit/main/public/links.csv"
 EDIT_MARKDOWN="https://github.com/aksellsor/tools/edit/main/public/readme.md"
 EDIT_PENS="https://github.com/aksellsor/tools/edit/main/public/ui-pens.csv"
-
-[worker]
-compatibility_date = "2024-12-09"
-compatibility_flags = ["streams_enable_constructors"]
