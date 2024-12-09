@@ -106,15 +106,6 @@ const keyDown = (e) => {
 document.body.addEventListener('keydown', keyDown);
 ```
 
-## Create new Umbraco project
-
-- [Find latest Umbraco template](https://www.nuget.org/packages/Umbraco.Templates 'Nuget')
-
-```
-dotnet new install Umbraco.Templates::12.3.5
-dotnet new umbraco --name ProjectName
-```
-
 ## Freeze browser window after x delay (useful for debugging :hover, :focus effects)
 
 ```css
