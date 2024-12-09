@@ -1,185 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+import Layout from "../layouts/Layout.astro";
+let {
+	GITHUB_REPO,
+	NEW_AKSELL_TOOL,
+	EDIT_LINKS,
+EDIT_HTML,
+EDIT_MARKDOWN,
+	} = import.meta.env;
+---
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- FAVICONS -->
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="https://aksellsor.github.io/global/favicons/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="https://aksellsor.github.io/global/favicons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="https://aksellsor.github.io/global/favicons" />
-    <link rel="manifest" href="https://aksellsor.github.io/global/favicons/site.webmanifest" />
-    <link rel="mask-icon" href="https://aksellsor.github.io/global/favicons/safari-pinned-tab.svg"
-        color="#00c458" />
-    <!-- Primary Meta Tags -->
-    <title>Aksell.dev</title>
-    <meta name="title" content="Aksell Tools" />
-    <meta name="description" content="Useful tools from the Aksell Dev team" />
+<Layout>
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Aksell Tools" />
-    <meta property="og:description" content="Useful tools from the Aksell Dev team" />
-    <meta property="og:image" content="./og-image.jpg" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Aksell Tools" />
-    <meta property="twitter:description" content="Useful tools from the Aksell Dev team" />
-    <meta property="twitter:image" content="./og-image.jpg" />
-
-    <!-- Meta Tags Generated with https://metatags.io -->
-    <style>
-        @media (hover: hover) {
-            body {
-                overscroll-behavior: none;
-                touch-action: pan-down;
-            }
-        }
-
-        body.noscroll {
-            height: 100vh;
-            width: 100vw;
-            touch-action: none;
-            -webkit-overflow-scrolling: none;
-            overflow: hidden;
-            overscroll-behavior: none;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-                sans-serif;
-
-            background-color: #212121;
-            background: linear-gradient(57deg,
-                    #353334 0%,
-                    rgba(0, 0, 0, 1) 88%);
-            color: #fff;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 3rem;
-
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            background-image: var(--bg-img);
-            inset: 0;
-            opacity: 0.3;
-            background-repeat: repeat;
-            background-size: cover;
-            filter: blur(15px);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-
-
-        /* body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            opacity: 0.2;
-            background-repeat: repeat;
-            background-size: cover;
-            pointer-events: none;
-            z-index: -1;
-            background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20512%20512%22%20width%3D%22512%22%20height%3D%22512%22%20preserveAspectRatio%3D%22none%22%3E%20%3Ccircle%20cx%3D%22256%22%20cy%3D%22256%22%20r%3D%2210.01%25%22%20fill%3D%22%23565559%22%20%2F%3E%3C%2Fsvg%3E);
-            background-size: 10px;
-            background-position: center;
-            background-repeat: repeat;
-        } */
-
-        hr {
-            border-color: #585858;
-            border-width: 1px;
-            border-style: solid;
-        }
-
-        html {
-            scrollbar-face-color: #646464;
-            scrollbar-base-color: #646464;
-            scrollbar-3dlight-color: #646464;
-            scrollbar-highlight-color: #646464;
-            scrollbar-track-color: #000;
-            scrollbar-arrow-color: #000;
-            scrollbar-shadow-color: #646464;
-            scrollbar-dark-shadow-color: #646464;
-            font-size: 16px;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 3px;
-        }
-
-        ::-webkit-scrollbar-button {
-            background-color: #666;
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #646464;
-        }
-
-        ::-webkit-scrollbar-track-piece {
-            background-color: #000;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            height: 50px;
-            background-color: #666;
-            border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-corner {
-            background-color: #646464;
-        }
-
-        ::-webkit-resizer {
-            background-color: #666;
-        }
-
-
-        #markdown,
-        .container {
-            padding-top: 50px;
-        }
-
-        @media (max-width: 800px) {
-            body {
-                padding: 1.25rem;
-            }
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: auto;
-        }
-
-        a {
-            color: #fff;
-        }
-
-        a:hover {
-            opacity: 0.8;
-        }
-
-        *,
-        *::after,
-        *::before {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .img {
-            width: 100%;
-        }
+    <style is:inline>
 
         #links, .links {
             display: flex;
@@ -325,7 +157,7 @@
             border-radius: .25rem;
         }
     </style>
-    <style>
+    <style is:inline>
         /* CMDK */
 
         #cmdk {
@@ -563,7 +395,7 @@
             -webkit-transition-delay: 9999s;
         }
     </style>
-    <style>
+    <style is:inline>
         /* Dracula Theme v1.2.5
  *
  * https://github.com/dracula/highlightjs
@@ -656,14 +488,8 @@
             font-style: italic;
         }
     </style>
-    <style>
-        body {
-            min-height: 101vh;
-        }
-    </style>
-</head>
 
-<body>
+
     <div id="fadein">
     </div>
     <div class="container">
@@ -706,23 +532,23 @@
                         transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
                 </g>
             </svg>
-            <div href="https://github.com/aksellsor/tools/edit/main/links.csv" class="top-ui-link top-ui-link--search">
+            <div class="top-ui-link top-ui-link--search">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 27 27.007">
                     <path id="Icon_ionic-ios-search" data-name="Icon ionic-ios-search"
                         d="M31.184,29.545l-7.509-7.58a10.7,10.7,0,1,0-1.624,1.645l7.46,7.53a1.156,1.156,0,0,0,1.631.042A1.163,1.163,0,0,0,31.184,29.545ZM15.265,23.7a8.45,8.45,0,1,1,5.977-2.475A8.4,8.4,0,0,1,15.265,23.7Z"
                         transform="translate(-4.5 -4.493)" fill="currentColor" />
                 </svg>
             </div>
-            <a href="https://github.com/new?template_name=boilerplate&template_owner=aksellsor" target="_blank"
+            <a href={NEW_AKSELL_TOOL} target="_blank"
                 class="top-ui-link"><span>Create</span>
                 new Aksell tool</a>
-            <a href="https://github.com/aksellsor/tools/edit/main/links.csv" target="_blank"
+            <a href={EDIT_LINKS} target="_blank"
                 class="top-ui-link"><span>Edit</span>
                 links</a>
-            <a href="https://github.com/aksellsor/tools/edit/main/index.html" target="_blank"
+            <a href={EDIT_HTML} target="_blank"
                 class="top-ui-link"><span>Edit</span>
                 html</a>
-            <a href="https://github.com/aksellsor/tools/edit/main/readme.md" target="_blank"
+            <a href={EDIT_MARKDOWN} target="_blank"
                 class="top-ui-link"><span>Edit</span>
                 md</a>
         </div>
@@ -736,7 +562,7 @@
     </div>
     </script>
     <!-- GET CONTENT -->
-    <script>
+    <script  is:inline define:vars={{GITHUB_REPO}}>
         document.querySelector('#search-form').addEventListener('submit', (e) => {
             e.preventDefault();
         });
@@ -799,15 +625,14 @@
             if (e.altKey && e.shiftKey) {
                 switch (e.code) {
                     case 'KeyG':
-                        window.open('https://github.com/aksellsor/tools');
+                        window.open(GITHUB_REPO);
                         break;
                 }
             }
         };
-        document.body.addEventListener('keydown', keyDown);
+        document.addEventListener('keydown', keyDown);
         let allUrls = [];
         let milliseconds = new Date().getTime();
-        let links = document.querySelector('#links');
         let allGroups = document.querySelector('#grouped-links');
         let cmdkLinks = document.querySelector('#cmdk-links');
         function csvJSON(csv) {
@@ -915,7 +740,7 @@
             }
         };
         fetch(
-            `https://partytownproxy.aksell.workers.dev/?apiurl=https://raw.githubusercontent.com/aksellsor/tools/refs/heads/main/links.csv&v=${milliseconds}`
+            `/links.csv?v=${milliseconds}`
         )
             .then((r) => r.text())
             .then((csv) => {
@@ -1012,7 +837,7 @@
         });
     </script>
     <!-- PASTE IMAGE BG -->
-    <script>
+    <script  is:inline>
         document.addEventListener('DOMContentLoaded', function () {
             document.addEventListener('paste', function (evt) {
                 const clipboardItems = evt.clipboardData.items;
@@ -1036,11 +861,11 @@
         });
     </script>
     <!-- MARKDOWN -->
-    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.2/dist/markdown-it.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script>
-        fetch(
-            `https://partytownproxy.aksell.workers.dev/?apiurl=https://raw.githubusercontent.com/aksellsor/tools/refs/heads/main/readme.md&v=${milliseconds}`
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.2/dist/markdown-it.min.js"  is:inline></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"  is:inline></script>
+    <script is:inline>
+        let milliseconds = new Date().getTime();
+        fetch(`/readme.md?v=${milliseconds}`
         )
             .then((r) => r.text())
             .then((text) => {
@@ -1056,7 +881,6 @@
                         return ''; // use external default escaping
                     },
                 });
-                // var md = window.markdownit();
                 var result = md.render(text);
                 markdown.innerHTML = result;
                 if (markdown.innerHTML?.length > 0) {
@@ -1068,13 +892,7 @@
                         el.style.marginLeft = "-40px";
                         el.innerHTML = el.innerHTML.replace('[ ]', "<input type='checkbox' />").replace('[x]', "<input type='checkbox' checked='true'/>");
                     });
-                    //     document.querySelectorAll("code").forEach(el => {
-                    //         let lang = el.classList.value.split("-")[1];
-                    //         console.log(lang);
-                    //     });
                 }
             });
     </script>
-</body>
-
-</html>
+</Layout>
