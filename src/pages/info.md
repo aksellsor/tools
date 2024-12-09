@@ -1,5 +1,3 @@
----
-
 ### AI Tools
 
 - [Replicate](https://replicate.com/ 'Replicate') - Tons of APIs for Generative AI
@@ -10,8 +8,6 @@
 - [Pika Labs](https://discord.com/invite/pika 'Pika labs') - Discord bot for generating videos from text or image
 - [Capcut Video Upscaler](https://www.capcut.com/tools/ai-video-upscaler 'Capcut video upscaler') - Upscale video using AI for free
 - [Playground](https://playground.com/ 'Playground') - Like Miro, but with AI tools
-
----
 
 ### Code to know
 
