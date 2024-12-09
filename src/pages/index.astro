@@ -860,7 +860,6 @@ EDIT_MARKDOWN,
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.2/dist/markdown-it.min.js" is:inline></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" is:inline></script>
     <script is:inline>
-        let milliseconds = new Date().getTime();
         fetch(`/readme.md?v=${milliseconds}`
         )
             .then((r) => r.text())
