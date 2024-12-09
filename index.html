@@ -15,7 +15,7 @@
     <link rel="mask-icon" href="https://aksellsor.github.io/global/favicons/safari-pinned-tab.svg"
         color="#00c458" />
     <!-- Primary Meta Tags -->
-    <title>aksell.dev</title>
+    <title>Aksell.dev</title>
     <meta name="title" content="Aksell Tools" />
     <meta name="description" content="Useful tools from the Aksell Dev team" />
 
@@ -915,7 +915,7 @@
             }
         };
         fetch(
-            `https://partytownproxy.aksell.workers.dev/?apiurl=https://raw.githubusercontent.com/aksellsor/tools/main/links.csv&v=${milliseconds}`
+            `https://partytownproxy.aksell.workers.dev/?apiurl=https://raw.githubusercontent.com/aksellsor/tools/refs/heads/main/links.csv&v=${milliseconds}`
         )
             .then((r) => r.text())
             .then((csv) => {
@@ -1040,7 +1040,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
         fetch(
-            `https://partytownproxy.aksell.workers.dev/?apiurl=https://raw.githubusercontent.com/aksellsor/tools/main/readme.md&v=${milliseconds}`
+            `https://partytownproxy.aksell.workers.dev/?apiurl=https://raw.githubusercontent.com/aksellsor/tools/refs/heads/main/readme.md&v=${milliseconds}`
         )
             .then((r) => r.text())
             .then((text) => {
