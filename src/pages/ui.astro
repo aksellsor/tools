@@ -1,265 +1,264 @@
 ---
 import Layout from "../layouts/Layout.astro";
-let {EDIT_PENS} = import.meta.env;
+import { EDIT_PENS } from "astro:env/client"
 ---
 
 <Layout>
 
-<style>
-    @media (hover: hover) {
-        body {
-            overscroll-behavior: none;
-            touch-action: pan-down;
-        }
-    }
-
-    body.noscroll {
-        height: 100vh;
-        width: 100vw;
-        touch-action: none;
-        -webkit-overflow-scrolling: none;
-        overflow: hidden;
-        overscroll-behavior: none;
-    }
-
-    body {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-            Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-            sans-serif;
-
-        background-color: #212121;
-        background: linear-gradient(57deg, #353334 0%, rgba(0, 0, 0, 1) 88%);
-        color: #fff;
-        background-attachment: fixed;
-        margin: 0;
-        padding: 3rem;
-    }
-
-    body::before {
-        content: '';
-        position: fixed;
-        background-image: var(--bg-img);
-        inset: 0;
-        opacity: 0.3;
-        background-repeat: repeat;
-        background-size: cover;
-        filter: blur(15px);
-        pointer-events: none;
-        z-index: -1;
-    }
-
-    hr {
-        border-color: #585858;
-        border-width: 1px;
-        border-style: solid;
-    }
-
-    html {
-        scrollbar-face-color: #646464;
-        scrollbar-base-color: #646464;
-        scrollbar-3dlight-color: #646464;
-        scrollbar-highlight-color: #646464;
-        scrollbar-track-color: #000;
-        scrollbar-arrow-color: #000;
-        scrollbar-shadow-color: #646464;
-        scrollbar-dark-shadow-color: #646464;
-        font-size: 16px;
-    }
-
-    ::-webkit-scrollbar {
-        width: 8px;
-        height: 3px;
-    }
-
-    ::-webkit-scrollbar-button {
-        background-color: #666;
-    }
-
-    ::-webkit-scrollbar-track {
-        background-color: #646464;
-    }
-
-    ::-webkit-scrollbar-track-piece {
-        background-color: #000;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        height: 50px;
-        background-color: #666;
-        border-radius: 3px;
-    }
-
-    ::-webkit-scrollbar-corner {
-        background-color: #646464;
-    }
-
-    ::-webkit-resizer {
-        background-color: #666;
-    }
-
-    #markdown,
-    .container {
-        padding-top: 50px;
-    }
-
-    @media (max-width: 800px) {
-        body {
-            padding: 1.25rem;
-        }
-    }
-
-    .container {
-        max-width: 1300px;
-        margin: auto;
-    }
-
-    a {
-        color: #fff;
-    }
-
-    a:hover {
-        opacity: 0.8;
-    }
-
-    *,
-    *::after,
-    *::before {
-        box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-
-    .img {
-        width: 100%;
-    }
-
-    #edit-links {
-        margin-left: -6px;
-    }
-
-    @media (max-width: 800px) {
-        .top-ui-link:not(.top-ui-link--search)::before {
-            content: '✎';
-        }
-
-        .top-ui-link span {
-            display: none;
-        }
-    }
-
-    .top-ui-link {
-        text-decoration: none;
-        color: #ccc;
-        display: inline-block;
-        padding: 0.5rem;
-    }
-
-    .top-ui-link:hover {
-        text-decoration: underline;
-    }
-
-    .top-ui-link:focus {
-        background-color: #19171c;
-        outline: 1px solid #00e869;
-        border-radius: 0.25rem;
-    }
-
-    #top-ui {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .top-ui-link--search {
-        outline: 1.5px solid rgba(150, 150, 150, 0.5);
-        border-radius: 50rem;
-        padding: 0.4rem 1rem;
-        color: rgba(150, 150, 150, 0.656);
-        margin-right: auto;
-        margin-left: 1rem;
-        line-height: 1;
-        align-items: center;
-        display: inline-flex;
-        gap: 0.5rem;
-        font-size: 0.8rem;
-        user-select: none;
-    }
-
-    @media (min-width: 800px) and (hover: hover) {
-        .top-ui-link--search::after {
-            content: 'CMD+K';
-            font-weight: bold;
-        }
-    }
-</style>
-
-<div class="container">
-    <div id="top-ui">
-        <a href="/" >
-            <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="61.703"
-                height="28.047" viewBox="0 0 61.703 28.047">
-                <g id="Group_88159" data-name="Group 88159" transform="translate(-608.5 -2468.587)">
-                    <rect id="Rectangle_65" data-name="Rectangle 65" width="28.047" height="28.047"
-                        transform="translate(608.5 2468.587)" fill="#00e86a"></rect>
-                    <rect id="Rectangle_66" data-name="Rectangle 66" width="17.95" height="28.047"
-                        transform="translate(639.913 2468.587)" fill="#00e86a"></rect>
-                    <rect id="Rectangle_67" data-name="Rectangle 67" width="8.975" height="28.047"
-                        transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
-                </g>
-            </svg>
-        </a>
-        <a href={EDIT_PENS} target="_blank"
-            class="top-ui-link"><span>Add</span> Codepens</a>
-    </div>
-    <h1>Aksell UI Components</h1>
-    <hr style="margin-bottom: 4rem" />
-
-    <div id="codepen-container"></div>
-    <script is:inline>
-        // Function to generate random token
-        function generateRandomToken() {
-            return Math.random().toString(36).substring(2); // Generate a random alphanumeric string
-        }
-
-        // URL to your CSV file on GitHub with random token
-        const csvUrl = `/ui-pens.csv?token=${generateRandomToken()}`;
-
-        // Function to parse CSV
-        function parseCSV(text) {
-            const lines = text.split('\n');
-            const result = [];
-
-            for (let i = 0; i < lines.length; i++) {
-                const currentLine = lines[i].split(',');
-                if (currentLine.length === 2) {
-                    result.push({
-                        url: currentLine[0]?.trim(),
-                        title: currentLine[1]?.trim(),
-                    });
-                }
+    <style>
+        @media (hover: hover) {
+            body {
+                overscroll-behavior: none;
+                touch-action: pan-down;
             }
-            return result;
         }
 
-        // Function to extract slug from CodePen URL
-        function getSlugFromUrl(url) {
-            const parts = url.split('/');
-            return parts[parts.length - 1]; // The last part of the URL is the slug
+        body.noscroll {
+            height: 100vh;
+            width: 100vw;
+            touch-action: none;
+            -webkit-overflow-scrolling: none;
+            overflow: hidden;
+            overscroll-behavior: none;
         }
 
-        // Fetch and display content
-        fetch(csvUrl)
-            .then((response) => response.text())
-            .then((data) => {
-                const parsedData = parseCSV(data);
-                const container = document.getElementById('codepen-container');
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+                sans-serif;
 
-                parsedData.forEach((item) => {
-                    const slug = getSlugFromUrl(item.url);
-                    const title = item.title;
+            background-color: #212121;
+            background: linear-gradient(57deg, #353334 0%, rgba(0, 0, 0, 1) 88%);
+            color: #fff;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 3rem;
+        }
 
-                    // Generate HTML with dynamic slug
-                    let html = `<h3>${title}</h3><p
+        body::before {
+            content: '';
+            position: fixed;
+            background-image: var(--bg-img);
+            inset: 0;
+            opacity: 0.3;
+            background-repeat: repeat;
+            background-size: cover;
+            filter: blur(15px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        hr {
+            border-color: #585858;
+            border-width: 1px;
+            border-style: solid;
+        }
+
+        html {
+            scrollbar-face-color: #646464;
+            scrollbar-base-color: #646464;
+            scrollbar-3dlight-color: #646464;
+            scrollbar-highlight-color: #646464;
+            scrollbar-track-color: #000;
+            scrollbar-arrow-color: #000;
+            scrollbar-shadow-color: #646464;
+            scrollbar-dark-shadow-color: #646464;
+            font-size: 16px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 3px;
+        }
+
+        ::-webkit-scrollbar-button {
+            background-color: #666;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #646464;
+        }
+
+        ::-webkit-scrollbar-track-piece {
+            background-color: #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            height: 50px;
+            background-color: #666;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-corner {
+            background-color: #646464;
+        }
+
+        ::-webkit-resizer {
+            background-color: #666;
+        }
+
+        #markdown,
+        .container {
+            padding-top: 50px;
+        }
+
+        @media (max-width: 800px) {
+            body {
+                padding: 1.25rem;
+            }
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        *,
+        *::after,
+        *::before {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .img {
+            width: 100%;
+        }
+
+        #edit-links {
+            margin-left: -6px;
+        }
+
+        @media (max-width: 800px) {
+            .top-ui-link:not(.top-ui-link--search)::before {
+                content: '✎';
+            }
+
+            .top-ui-link span {
+                display: none;
+            }
+        }
+
+        .top-ui-link {
+            text-decoration: none;
+            color: #ccc;
+            display: inline-block;
+            padding: 0.5rem;
+        }
+
+        .top-ui-link:hover {
+            text-decoration: underline;
+        }
+
+        .top-ui-link:focus {
+            background-color: #19171c;
+            outline: 1px solid #00e869;
+            border-radius: 0.25rem;
+        }
+
+        #top-ui {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-ui-link--search {
+            outline: 1.5px solid rgba(150, 150, 150, 0.5);
+            border-radius: 50rem;
+            padding: 0.4rem 1rem;
+            color: rgba(150, 150, 150, 0.656);
+            margin-right: auto;
+            margin-left: 1rem;
+            line-height: 1;
+            align-items: center;
+            display: inline-flex;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            user-select: none;
+        }
+
+        @media (min-width: 800px) and (hover: hover) {
+            .top-ui-link--search::after {
+                content: 'CMD+K';
+                font-weight: bold;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div id="top-ui">
+            <a href="/">
+                <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="61.703"
+                    height="28.047" viewBox="0 0 61.703 28.047">
+                    <g id="Group_88159" data-name="Group 88159" transform="translate(-608.5 -2468.587)">
+                        <rect id="Rectangle_65" data-name="Rectangle 65" width="28.047" height="28.047"
+                            transform="translate(608.5 2468.587)" fill="#00e86a"></rect>
+                        <rect id="Rectangle_66" data-name="Rectangle 66" width="17.95" height="28.047"
+                            transform="translate(639.913 2468.587)" fill="#00e86a"></rect>
+                        <rect id="Rectangle_67" data-name="Rectangle 67" width="8.975" height="28.047"
+                            transform="translate(661.228 2468.587)" fill="#00e86a"></rect>
+                    </g>
+                </svg>
+            </a>
+            <a href={EDIT_PENS} target="_blank" class="top-ui-link"><span>Add</span> Codepens</a>
+        </div>
+        <h1>Aksell UI Components</h1>
+        <hr style="margin-bottom: 4rem" />
+
+        <div id="codepen-container"></div>
+        <script is:inline>
+            // Function to generate random token
+            function generateRandomToken() {
+                return Math.random().toString(36).substring(2); // Generate a random alphanumeric string
+            }
+
+            // URL to your CSV file on GitHub with random token
+            const csvUrl = `/ui-pens.csv?token=${generateRandomToken()}`;
+
+            // Function to parse CSV
+            function parseCSV(text) {
+                const lines = text.split('\n');
+                const result = [];
+
+                for (let i = 0; i < lines.length; i++) {
+                    const currentLine = lines[i].split(',');
+                    if (currentLine.length === 2) {
+                        result.push({
+                            url: currentLine[0]?.trim(),
+                            title: currentLine[1]?.trim(),
+                        });
+                    }
+                }
+                return result;
+            }
+
+            // Function to extract slug from CodePen URL
+            function getSlugFromUrl(url) {
+                const parts = url.split('/');
+                return parts[parts.length - 1]; // The last part of the URL is the slug
+            }
+
+            // Fetch and display content
+            fetch(csvUrl)
+                .then((response) => response.text())
+                .then((data) => {
+                    const parsedData = parseCSV(data);
+                    const container = document.getElementById('codepen-container');
+
+                    parsedData.forEach((item) => {
+                        const slug = getSlugFromUrl(item.url);
+                        const title = item.title;
+
+                        // Generate HTML with dynamic slug
+                        let html = `<h3>${title}</h3><p
                         class="codepen"
                         data-height="450"
                         data-theme-id="dark"
@@ -271,19 +270,19 @@ let {EDIT_PENS} = import.meta.env;
                         style="height: 450px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
                     ></p>`;
 
-                    // Append to the container
-                    container.innerHTML += html;
-                });
+                        // Append to the container
+                        container.innerHTML += html;
+                    });
 
-                // Inject the CodePen script to load the pens
-                const script = document.createElement('script');
-                script.src = 'https://cpwebassets.codepen.io/assets/embed/ei.js';
-                script.async = true;
-                document.body.appendChild(script);
-            })
-            .catch((error) => console.error('Error fetching the CSV file:', error));
-    </script>
-    <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-</div>
+                    // Inject the CodePen script to load the pens
+                    const script = document.createElement('script');
+                    script.src = 'https://cpwebassets.codepen.io/assets/embed/ei.js';
+                    script.async = true;
+                    document.body.appendChild(script);
+                })
+                .catch((error) => console.error('Error fetching the CSV file:', error));
+        </script>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+    </div>
 
 </Layout>
