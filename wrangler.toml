@@ -6,3 +6,6 @@ EDIT_HTML="https://github.com/aksellsor/tools/edit/main/index.html"
 EDIT_LINKS="https://github.com/aksellsor/tools/edit/main/public/links.csv"
 EDIT_MARKDOWN="https://github.com/aksellsor/tools/edit/main/public/readme.md"
 EDIT_PENS="https://github.com/aksellsor/tools/edit/main/public/ui-pens.csv"
+
+[pages]
+pages_build_output_dir = "dist"
