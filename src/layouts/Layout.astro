@@ -1,10 +1,14 @@
 ---
 
+const { env } = Astro.locals.runtime;
 let {
-GITHUB_REPO,CLOUDFLARE_DASH,
-title = "aksell.dev",
-description = "Useful tools from the Aksell Dev team"
-} = import.meta.env;
+    title = "aksell.dev",
+    description = "Useful tools from the Aksell Dev team"
+} = Astro.props;
+let {
+    GITHUB_REPO,
+    CLOUDFLARE_DASH
+} = env;
 ---
 <!DOCTYPE html>
 <html lang="en">
