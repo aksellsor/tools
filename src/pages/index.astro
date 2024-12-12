@@ -8,6 +8,11 @@ NEW_AKSELL_TOOL,
 EDIT_LINKS,
 EDIT_HTML,
 EDIT_MARKDOWN } = env;
+
+let path = Astro.url.pathname;
+if(pathname === "docs") {
+  return Astro.redirect("https://github.com/aksellsor/aksell_docs");
+}
 ---
 
 <Layout>
