@@ -1,5 +1,6 @@
 url,label,category
-https://tabler.io/icons, Pixel perfect icons (SVG or JSX), Resources
+https://tabler.io/icons, Tabler SVG icons, Resources
+https://heroicons.com/, Pixel perfect icons (SVG or JSX), Resources
 https://shots.so, Create amazing mockups in the browser, Tools
 https://github.com/umbraco/Umbraco-CMS/blob/v13/bugfix/make_new_backoffice_packable/src/Umbraco.Web.UI.Client/src/views/prevalueeditors/imagepicker.controller.js, Umbraco Custom Propertyeditor, Umbraco Docs
 https://ray.so/, Create beautiful images of code, Tools
