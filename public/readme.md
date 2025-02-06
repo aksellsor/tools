@@ -10,6 +10,7 @@
 - [Capcut Video Upscaler](https://www.capcut.com/tools/ai-video-upscaler 'Capcut video upscaler') - Upscale video using AI for free
 - [Playground](https://playground.com/ 'Playground') - Like Miro, but with AI tools
 
+---
 
 ### Code to know
 
