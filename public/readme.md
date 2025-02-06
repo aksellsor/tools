@@ -15,6 +15,66 @@
 
 ### Code to know
 
+## Custom Umbraco Preview Button
+
+```js
+(function () {
+  angular.module("umbraco").run(function ($rootScope, $timeout) {
+    let observer = null;
+
+    function waitForElm(selector) {
+      return new Promise((resolve) => {
+        const element = document.querySelector(selector);
+        if (element) {
+          return resolve(element);
+        }
+        observer = new MutationObserver((mutations) => {
+          const el = document.querySelector(selector);
+          if (el) {
+            observer.disconnect();
+            resolve(el);
+          }
+        });
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+        });
+      });
+    }
+
+    function addCustomPreviewButton() {
+      waitForElm('umb-button[alias="preview"] button').then((btn) => {
+        if (btn) {
+          const newBtn = btn.cloneNode(true);
+          newBtn.removeAttribute("ng-click");
+          newBtn.innerText += "👀"; // Test if it changes btn
+          newBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            let link = document.querySelector(
+              '[title-key="general_links"] + .block-form li a'
+            );
+            let previewLink = link ? `${link.href}?preview=true` : "";
+            window.open(previewLink);
+          });
+          btn.parentNode.replaceChild(newBtn, btn);
+        }
+      });
+    }
+
+    // Run the function initially
+    addCustomPreviewButton();
+
+    // Listen for route changes and run the function again
+    $rootScope.$on("$routeChangeSuccess", function () {
+      if (observer) {
+        observer.disconnect();
+      }
+      $timeout(addCustomPreviewButton, 0); // Run immediately after route change
+    });
+  });
+})();
+```
+
 ## Local date time formatting
 
 ```js
