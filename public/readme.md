@@ -17,6 +17,18 @@
 ## Custom Umbraco Preview Button
 
 ```js
+// App_Plugins/PreviewButtonOverride/
+
+// package.manifest
+{
+  "javascript": [
+    "~/App_Plugins/PreviewButtonOverride/preview-btn.js"
+  ],
+  "bundleOptions": "None"
+}
+
+
+// preview-btn.js
 (function () {
   angular.module("umbraco").run(function ($rootScope, $timeout) {
     let observer = null;
