@@ -1,4 +1,8 @@
 url,label,category
+https://gemini.google.com/, Gemini Imagegen, Text to image
+https://ideogram.ai/, Ideogram.ai, Text to image
+https://app.leonardo.ai/image-generation, Leonardo.ai, Text to image
+https://getimg.ai/text-to-image, GetImg.ai, Text to image
 https://tabler.io/icons, Tabler SVG icons, Resources
 https://heroicons.com/, Pixel perfect icons (SVG or JSX), Resources
 https://shots.so, Create amazing mockups in the browser, Tools
