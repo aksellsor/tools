@@ -1,6 +1,5 @@
 name,href,roadblock
 Payload,https://payloadcms.com/
-Craft,https://craftcms.com/,missing sudo in SSH Syse
 Decap CMS,https://decapcms.org
 Strapi,https://strapi.io/
 Ghost,https://ghost.org/
@@ -9,3 +8,5 @@ Prismic,https://prismic.io/
 Prepr.io,https://prepr.io/
 Hygraph,https://hygraph.com/
 Butter,https://buttercms.com/
+Craft,https://craftcms.com/,missing sudo in SSH Syse
+Cockpit,https://getcockpit.com/,Needs php 8.3, Syse has 8.2
