@@ -75,7 +75,7 @@ function TabTitle() {
     }, []);
 
     useEffect(() => {
-      document.title = val || "aksell.dev - tabtitle"
+      document.title = val || "ıllıllı ◥◣ ʌǝp˙llǝsʞɐ ◥◣ ıllıllı"
     }, [val])
     
 
