@@ -1,0 +1,225 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TabTitle from "../components/TabTitle.jsx";
+
+---
+
+<Layout title="aksell.dev - tabtitle">
+        <style is:inline>
+    :root {
+      --primary: #00e869 !important;
+      --primary-hover: #09c95f !important;
+      --primary-inverse: #000 !important;
+      font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      font-weight: 400;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-attachment: fixed;
+      --pico-form-element-focus-color: var(--primary) !important;
+      --pico-primary-background: var(--primary) !important;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+    }
+    h1 {
+      font-size: 3.2em;
+      line-height: 1.1;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    input {
+      padding: 0.5rem 1rem;
+      display: block;
+    }
+    button {
+      position: relative;
+      width: max-content;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: #000;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      font-weight: 500;
+      font-family: inherit;
+      border-radius: 0.25rem;
+      display: block;
+      cursor: pointer;
+      border: 0;
+      width: 100%;
+      user-select: none;
+    }
+    button:hover,
+    button:focus {
+      text-decoration: underline;
+    }
+    
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      height: max-content;
+      position: relative;
+    }
+    .input-wrapper input {
+      padding-right: 3rem;
+    }
+    label {
+      margin-bottom: var(--spacing);
+    }
+    label input {
+      margin-bottom: 0 !important;
+    }
+    label > input {
+      margin-top: 0 !important;
+    }
+    
+    .dl--disabled button {
+      pointer-events: none;
+    }
+    .dl--disabled {
+      filter: saturate(0);
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .page {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      margin: auto;
+    }
+    fieldset {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    
+    @media (max-width: 1200px) {
+      .page {
+        flex-direction: column;
+      }
+    }
+    button {
+      display: flex;
+      justify-content: space-between;
+    }
+    .ui-row {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    input:valid.validize {
+      border-color: var(--primary);
+    }
+    
+    .contrast {
+      font-weight: bold;
+    }
+    .contrast--bad {
+      color: red;
+    }
+    
+    .contrast--ok {
+      color: orange;
+    }
+    
+    .contrast--good {
+      color: greenyellow;
+    }
+    
+    [data-theme='light'] .contrast--bad {
+      color: rgb(152, 10, 10);
+    }
+    
+    [data-theme='light'] .contrast--ok {
+      color: rgb(206, 143, 28);
+    }
+    
+    [data-theme='light'] .contrast--good {
+      color: rgb(113, 172, 18);
+    }
+    
+    .theme-changer {
+      position: fixed;
+      left: 1.5rem;
+      bottom: 1rem;
+      color: #fff;
+    }
+    
+    .theme-changer .react-toggle-track-x,
+    .theme-changer .react-toggle-track-check {
+      display: flex;
+      align-items: center;
+    }
+    
+    [data-theme='light'] .react-toggle-track {
+      background-color: #ededed;
+      color: #000;
+    }
+    
+    [data-theme='light'] .theme-changer:hover .react-toggle-track {
+      background-color: #fff;
+    }
+    
+    [data-theme='light'] .theme-changer .react-toggle-track-x {
+      color: #888;
+    }
+    [data-theme='dark'] .react-toggle-track {
+      background-color: #8c8c8c;
+      color: #000000;
+    }
+    
+    [data-theme='dark'] .theme-changer:hover .react-toggle-track {
+      background-color: #787878;
+    }
+    .theme-changer .react-toggle-track-x svg {
+      transform-origin: center right;
+    }
+    .theme-changer .react-toggle-track-x svg {
+      transform-origin: center left;
+    }
+    .theme-changer .react-toggle-track-x svg,
+    .theme-changer .react-toggle-track-check svg {
+      transform: scale(1.25);
+    }
+    .react-toggle-track-x,
+    .react-toggle-track-check {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    .react-toggle-track-x {
+      right: 0;
+    }
+    .react-toggle-track {
+      width: 3.25rem;
+      height: 1.5rem;
+    }
+    
+    .react-toggle-thumb {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+    .react-toggle--checked .react-toggle-thumb {
+      left: 1.75rem;
+    }
+    
+    [data-theme='dark'] .toast {
+      border-radius: 10px !important;
+      background-color: #333 !important;
+      color: #fff !important;
+    }
+    fieldset {
+        max-width: 400px;
+    }
+        </style>
+        <TabTitle client:only/>
+</Layout>
