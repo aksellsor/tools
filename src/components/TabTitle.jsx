@@ -10,6 +10,8 @@ import "react-toggle/style.css";
 
 function TabTitle() {
     const [val, setVal] = useState("");
+    const [faviconURL, setFaviconURL] = useState("");
+
     function useStickyState(defaultValue, key) {
         const [value, setValue] = React.useState(() => {
             const stickyValue = window.localStorage.getItem(key);
@@ -22,103 +24,147 @@ function TabTitle() {
         }, [key, value]);
         return [value, setValue];
     }
+
     const [theme, setTheme] = useStickyState(null, "theme");
-    const updateTheme = useCallback(
-        () => {
 
-            const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)');
-            if (prefersDarkTheme.matches) {
-                setTheme('dark');
-                return;
-            }
-
-            const prefersLightTheme = window.matchMedia('(prefers-color-scheme: light)');
-            if (prefersLightTheme.matches) {
-                setTheme('light');
-                return;
-            }
-
+    const updateTheme = useCallback(() => {
+        const prefersDarkTheme = window.matchMedia('(prefers-color-scheme: dark)');
+        if (prefersDarkTheme.matches) {
             setTheme('dark');
-        },
-        [],
-    );
+            return;
+        }
+
+        const prefersLightTheme = window.matchMedia('(prefers-color-scheme: light)');
+        if (prefersLightTheme.matches) {
+            setTheme('light');
+            return;
+        }
+
+        setTheme('dark');
+    }, []);
 
     useEffect(() => {
-        if (!theme) {
-            updateTheme();
-        }
+        if (!theme) updateTheme();
     }, [theme]);
 
     useEffect(() => {
-        const detectThemeChange = (event) => {
-            // const newColorScheme = event.matches ? "dark" : "light";
-
-            updateTheme();
-        };
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', detectThemeChange);
-
-        return () => {
-            window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', detectThemeChange);
-        };
+        const detectThemeChange = () => updateTheme();
+        const matcher = window.matchMedia('(prefers-color-scheme: dark)');
+        matcher.addEventListener('change', detectThemeChange);
+        return () => matcher.removeEventListener('change', detectThemeChange);
     }, []);
 
-
-
     useEffect(() => {
-        var root = document.getElementsByTagName('html')[0]; // '0' to assign the first (and only `HTML` tag)
-        root.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('data-theme', theme);
     }, [theme]);
 
     const canCopy = val?.length > 0;
+
     useEffect(() => {
         document.querySelector(".validize")?.focus();
     }, []);
 
     useEffect(() => {
-      document.title = val || "ıllıllı ◥◣ ʌǝp˙llǝsʞɐ ◥◣ ıllıllı"
-    }, [val])
-    
+        document.title = val || "Your text here";
+    }, [val]);
+
+const handleFileChange = (e) => {
+  const file = e.target.files[0];
+  if (file) applyFavicon(file);
+};
+
+const applyFavicon = (file) => {
+  if (!file || !file.type.startsWith("image/")) {
+    toast.error("Invalid image file");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function (event) {
+    const dataUrl = event.target.result;
+
+    // Remove all existing icons
+    document.querySelectorAll("link[rel~='icon']").forEach(el => el.remove());
+
+    // Add new icon
+    const newFavicon = document.createElement("link");
+    newFavicon.rel = "icon";
+    newFavicon.type = file.type;
+    newFavicon.href = dataUrl;
+    document.head.appendChild(newFavicon);
+
+    toast.success("Favicon updated!");
+  };
+  reader.readAsDataURL(file);
+};
+
+useEffect(() => {
+  const handlePaste = (e) => {
+    const item = [...e.clipboardData.items].find(i => i.type.startsWith("image/"));
+    if (item) {
+      const file = item.getAsFile();
+      if (file) {
+        applyFavicon(file);
+      }
+    }
+  };
+
+  window.addEventListener("paste", handlePaste);
+  return () => window.removeEventListener("paste", handlePaste);
+}, []);
+
 
     return (
         <>
             <Toaster />
             <label className='theme-changer'>
                 <Toggle
-                    checked={theme === "dark" ? true : false}
+                    checked={theme === "dark"}
                     icons={{
                         unchecked: <MdDarkMode />,
                         checked: <MdLightMode />,
                     }}
                     onChange={() => {
-                        setTheme(t => theme === "dark" ? "light" : "dark");
-                    }} />
+                        setTheme(theme === "dark" ? "light" : "dark");
+                    }}
+                />
             </label>
             <div className='page'>
                 <fieldset>
                     <label>
-                        <input placeholder={document.title} className="validize" type="text" name="tabtitle-value" id="" onChange={e => setVal(e.target.value)} defaultValue={val} required />
+                        <input
+                            placeholder={document.title}
+                            className="validize tabtitle-valuer"
+                            type="text"
+                            name="tabtitle-value"
+                            onChange={e => setVal(e.target.value)}
+                            defaultValue={val}
+                            required
+                        />
                     </label>
                     <div className='ui-row'>
-                        <div className={`dl ${(canCopy) ? "" : "dl--disabled"}`} onClick={() => {
-
+                        <div className={`dl ${(canCopy ? "" : "dl--disabled")}`} onClick={() => {
                             if (!canCopy) {
                                 document.querySelector(`[name="tabtitle-value"]`)?.focus();
                             }
                         }}>
                             <CopyToClipboard
-                                text={document.querySelector(".tabtitle-valuer")?.value}
+                                text={val}
                                 onCopy={() => {
-                                    toast("Tab Title has been copied",
-                                        {
-                                            duration: 1500,
-                                            icon: '👏',
-                                        });
+                                    toast("Tab Title has been copied", {
+                                        duration: 1500,
+                                        icon: '👏',
+                                    });
                                 }}
                             >
                                 <motion.button whileTap={{ scale: 0.9 }}>Copy Tab Title <IoMdCopy size="1.25em" /></motion.button>
                             </CopyToClipboard>
                         </div>
                     </div>
+                    <label>
+                        Paste or upload Favicon:
+                        <input type="file" accept="image/*" onChange={handleFileChange} />
+                    </label>
                 </fieldset>
             </div>
         </>
