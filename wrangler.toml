@@ -4,7 +4,7 @@ compatibility_date = "2024-12-09"
 
 [vars]
 GITHUB_REPO="https://github.com/aksellsor/tools"
-CLOUDFLARE_DASH="https://dash.cloudflare.com/781f2601c68594125b6b97567364d0d6/pages/view/tools"
+CLOUDFLARE_DASH="https://dash.cloudflare.com/781f2601c68594125b6b97567364d0d6/pages/view/aksell-tools"
 NEW_AKSELL_TOOL="https://github.com/new?template_name=boilerplate&template_owner=aksellsor"
 EDIT_HTML="https://github.com/aksellsor/tools/edit/main/src/pages/index.astro"
 EDIT_LINKS="https://github.com/aksellsor/tools/edit/main/public/links.csv"
