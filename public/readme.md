@@ -14,21 +14,6 @@
 
 ### Code to know
 
-## Animate based on element content
-
-```js
-  :root {
-    interpolate-size: allow-keywords;
-  }
-  nav a {
-    width: 2.5rem;
-    transition: width: 0.35s ease;
-  }
-  nav a:hover, nav a:focus-visible {
-    width: max-content;
-  }
-```
-
 ## Custom Umbraco Preview Button
 
 ```js
