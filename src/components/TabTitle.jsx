@@ -103,15 +103,21 @@ useEffect(() => {
     const item = [...e.clipboardData.items].find(i => i.type.startsWith("image/"));
     if (item) {
       const file = item.getAsFile();
-      if (file) {
-        applyFavicon(file);
-      }
+      if (file) return applyFavicon(file);
+    }
+
+    const svgText = e.clipboardData.getData("text/plain");
+    if (svgText?.startsWith("<svg")) {
+      const blob = new Blob([svgText], { type: "image/svg+xml" });
+      const file = new File([blob], "pasted.svg", { type: "image/svg+xml" });
+      applyFavicon(file);
     }
   };
 
   window.addEventListener("paste", handlePaste);
   return () => window.removeEventListener("paste", handlePaste);
 }, []);
+
 
 
     return (
