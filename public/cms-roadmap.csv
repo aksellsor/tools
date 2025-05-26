@@ -1,4 +1,5 @@
 name,href,roadblock
+Laravel Filament,https://filamentphp.com/
 Payload,https://payloadcms.com/
 Decap CMS,https://decapcms.org
 Directus,https://directus.io/
@@ -9,5 +10,5 @@ Prismic,https://prismic.io/
 Prepr.io,https://prepr.io/
 Hygraph,https://hygraph.com/
 Butter,https://buttercms.com/
-Craft,https://craftcms.com/,missing sudo in SSH Syse
+Craft,https://craftcms.com/,Bad pricing and Twig templates
 Cockpit,https://getcockpit.com/,Needs PHP 8.3 Syse has 8.2
