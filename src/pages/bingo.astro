@@ -1,0 +1,26 @@
+---
+import BingoCardGenerator from "../components/BingoCardGenerator"
+---
+<html data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+    </head>
+<body>
+<div class="container">    <BingoCardGenerator client:load/></div>
+<style>
+    body {
+        margin: 0;
+    }
+    body,html {
+        block-size: 100%;
+        display: grid;
+    }
+    .container {
+        max-width: 900px;
+        margin: auto;
+        width: calc(100% - 2rem);
+    }
+</style>
+</body>
+</html>

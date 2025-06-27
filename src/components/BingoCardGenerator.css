@@ -1,0 +1,93 @@
+
+
+        @media print {
+          * {
+            -webkit-print-color-adjust: exact !important;
+            color-adjust: exact !important;
+          }
+          
+          body {
+            margin: 0 !important;
+            padding: 0 !important;
+          }
+          
+          @page {
+            size: A4;
+            margin: 1cm;
+          }
+          
+          .print-container {
+            display: block !important;
+          }
+          
+          .print-card {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 1.5cm;
+            box-sizing: border-box;
+          }
+          
+          .print-header {
+            text-align: center;
+            margin-bottom: 1cm;
+          }
+          
+          .print-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: black;
+            margin: 0 0 0.3cm 0;
+            line-height: 1;
+            font-family: Arial, sans-serif;
+          }
+          
+          .print-card-number {
+            font-size: 1rem;
+            color: black;
+            margin: 0;
+            font-family: Arial, sans-serif;
+          }
+          
+          .print-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1px;
+            width: 17cm;
+            height: 17cm;
+            border: 2px solid black;
+          }
+          
+          .print-cell {
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2px;
+            background-color: white;
+            box-sizing: border-box;
+            min-height: 0;
+          }
+          
+          .print-cell-text {
+            font-size: 0.8rem;
+            font-weight: 500;
+            line-height: 1.1;
+            color: black;
+            word-break: break-word;
+            hyphens: auto;
+            overflow-wrap: break-word;
+            font-family: Arial, sans-serif;
+            display: block;
+            width: 100%;
+          }
+          
+          /* Hide screen elements */
+          .max-w-7xl {
+            display: none !important;
+          }
+        }
